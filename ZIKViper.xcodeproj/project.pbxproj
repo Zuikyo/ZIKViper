@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8FFBE6B1F3CC27200F87AF6 /* ZIKViper.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE691F3CC27200F87AF6 /* ZIKViper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE901F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FFBE861F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.m */; };
+		F8FFBE911F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE871F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE921F3CC39800F87AF6 /* ZIKViperViewPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE881F3CC39800F87AF6 /* ZIKViperViewPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE931F3CC39800F87AF6 /* ZIKViperView.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE891F3CC39800F87AF6 /* ZIKViperView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE941F3CC39800F87AF6 /* ZIKViperRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE8A1F3CC39800F87AF6 /* ZIKViperRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE951F3CC39800F87AF6 /* ZIKViperPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE8B1F3CC39800F87AF6 /* ZIKViperPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE961F3CC39800F87AF6 /* ZIKViperInteractorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE8C1F3CC39800F87AF6 /* ZIKViperInteractorPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE971F3CC39800F87AF6 /* ZIKViperInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE8D1F3CC39800F87AF6 /* ZIKViperInteractor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE981F3CC39800F87AF6 /* ZIKViperPresenterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE8E1F3CC39800F87AF6 /* ZIKViperPresenterPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FFBE991F3CC39800F87AF6 /* ZIKViperViewEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE8F1F3CC39800F87AF6 /* ZIKViperViewEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F8FFBE661F3CC27200F87AF6 /* ZIKViper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIKViper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8FFBE691F3CC27200F87AF6 /* ZIKViper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ZIKViper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F8FFBE6A1F3CC27200F87AF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8FFBE861F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "ZIKViewRouter+ZIKViper.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F8FFBE871F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIKViewRouter+ZIKViper.h"; sourceTree = "<group>"; };
+		F8FFBE881F3CC39800F87AF6 /* ZIKViperViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ZIKViperViewPrivate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F8FFBE891F3CC39800F87AF6 /* ZIKViperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKViperView.h; sourceTree = "<group>"; };
+		F8FFBE8A1F3CC39800F87AF6 /* ZIKViperRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKViperRouter.h; sourceTree = "<group>"; };
+		F8FFBE8B1F3CC39800F87AF6 /* ZIKViperPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ZIKViperPresenter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F8FFBE8C1F3CC39800F87AF6 /* ZIKViperInteractorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ZIKViperInteractorPrivate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F8FFBE8D1F3CC39800F87AF6 /* ZIKViperInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKViperInteractor.h; sourceTree = "<group>"; };
+		F8FFBE8E1F3CC39800F87AF6 /* ZIKViperPresenterPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ZIKViperPresenterPrivate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F8FFBE8F1F3CC39800F87AF6 /* ZIKViperViewEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKViperViewEventHandler.h; sourceTree = "<group>"; };
+		F8FFBF161F3CD01000F87AF6 /* ZIKRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIKRouter.framework; path = "../../../Library/Developer/Xcode/DerivedData/ZIKViperDemo-bpybaascwgifsfgackllubksbnth/Build/Products/Debug-iphoneos/ZIKRouter/ZIKRouter.framework"; sourceTree = "<group>"; };
+		F8FFBF1C1F3CD1BA00F87AF6 /* ZIKRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZIKRouter.framework; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8FFBE621F3CC27200F87AF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8FFBE5C1F3CC27200F87AF6 = {
+			isa = PBXGroup;
+			children = (
+				F8FFBE681F3CC27200F87AF6 /* ZIKViper */,
+				F8FFBE671F3CC27200F87AF6 /* Products */,
+				F8FFBF151F3CD01000F87AF6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F8FFBE671F3CC27200F87AF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8FFBE661F3CC27200F87AF6 /* ZIKViper.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8FFBE681F3CC27200F87AF6 /* ZIKViper */ = {
+			isa = PBXGroup;
+			children = (
+				F8FFBE691F3CC27200F87AF6 /* ZIKViper.h */,
+				F8FFBE891F3CC39800F87AF6 /* ZIKViperView.h */,
+				F8FFBE8F1F3CC39800F87AF6 /* ZIKViperViewEventHandler.h */,
+				F8FFBE8B1F3CC39800F87AF6 /* ZIKViperPresenter.h */,
+				F8FFBE8D1F3CC39800F87AF6 /* ZIKViperInteractor.h */,
+				F8FFBE8A1F3CC39800F87AF6 /* ZIKViperRouter.h */,
+				F8FFBE881F3CC39800F87AF6 /* ZIKViperViewPrivate.h */,
+				F8FFBE8E1F3CC39800F87AF6 /* ZIKViperPresenterPrivate.h */,
+				F8FFBE8C1F3CC39800F87AF6 /* ZIKViperInteractorPrivate.h */,
+				F8FFBE871F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.h */,
+				F8FFBE861F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.m */,
+				F8FFBF1C1F3CD1BA00F87AF6 /* ZIKRouter.framework */,
+				F8FFBE6A1F3CC27200F87AF6 /* Info.plist */,
+			);
+			path = ZIKViper;
+			sourceTree = "<group>";
+		};
+		F8FFBF151F3CD01000F87AF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8FFBF161F3CD01000F87AF6 /* ZIKRouter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F8FFBE631F3CC27200F87AF6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8FFBE6B1F3CC27200F87AF6 /* ZIKViper.h in Headers */,
+				F8FFBE931F3CC39800F87AF6 /* ZIKViperView.h in Headers */,
+				F8FFBE991F3CC39800F87AF6 /* ZIKViperViewEventHandler.h in Headers */,
+				F8FFBE951F3CC39800F87AF6 /* ZIKViperPresenter.h in Headers */,
+				F8FFBE971F3CC39800F87AF6 /* ZIKViperInteractor.h in Headers */,
+				F8FFBE921F3CC39800F87AF6 /* ZIKViperViewPrivate.h in Headers */,
+				F8FFBE981F3CC39800F87AF6 /* ZIKViperPresenterPrivate.h in Headers */,
+				F8FFBE961F3CC39800F87AF6 /* ZIKViperInteractorPrivate.h in Headers */,
+				F8FFBE941F3CC39800F87AF6 /* ZIKViperRouter.h in Headers */,
+				F8FFBE911F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F8FFBE651F3CC27200F87AF6 /* ZIKViper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8FFBE6E1F3CC27200F87AF6 /* Build configuration list for PBXNativeTarget "ZIKViper" */;
+			buildPhases = (
+				F8FFBE611F3CC27200F87AF6 /* Sources */,
+				F8FFBE621F3CC27200F87AF6 /* Frameworks */,
+				F8FFBE631F3CC27200F87AF6 /* Headers */,
+				F8FFBE641F3CC27200F87AF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZIKViper;
+			productName = ZIKViper;
+			productReference = F8FFBE661F3CC27200F87AF6 /* ZIKViper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8FFBE5D1F3CC27200F87AF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = zuik;
+				TargetAttributes = {
+					F8FFBE651F3CC27200F87AF6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F8FFBE601F3CC27200F87AF6 /* Build configuration list for PBXProject "ZIKViper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F8FFBE5C1F3CC27200F87AF6;
+			productRefGroup = F8FFBE671F3CC27200F87AF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8FFBE651F3CC27200F87AF6 /* ZIKViper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8FFBE641F3CC27200F87AF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8FFBE611F3CC27200F87AF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8FFBE901F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F8FFBE6C1F3CC27200F87AF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F8FFBE6D1F3CC27200F87AF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F8FFBE6F1F3CC27200F87AF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = ZIKViper/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zuik.ZIKViper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F8FFBE701F3CC27200F87AF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = ZIKViper/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zuik.ZIKViper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8FFBE601F3CC27200F87AF6 /* Build configuration list for PBXProject "ZIKViper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8FFBE6C1F3CC27200F87AF6 /* Debug */,
+				F8FFBE6D1F3CC27200F87AF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8FFBE6E1F3CC27200F87AF6 /* Build configuration list for PBXNativeTarget "ZIKViper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8FFBE6F1F3CC27200F87AF6 /* Debug */,
+				F8FFBE701F3CC27200F87AF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8FFBE5D1F3CC27200F87AF6 /* Project object */;
+}
