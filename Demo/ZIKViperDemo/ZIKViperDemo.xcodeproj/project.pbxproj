@@ -71,8 +71,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1402C240ECE26DFD4E8EC5F3 /* Pods-ZIKViperDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZIKViperDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZIKViperDemo/Pods-ZIKViperDemo.release.xcconfig"; sourceTree = "<group>"; };
-		2495F9DE2071C6C0A1E855AE /* Pods-ZIKViperDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZIKViperDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZIKViperDemo/Pods-ZIKViperDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		40710C838029B8221A1146E1 /* Pods_ZIKViperDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZIKViperDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82CB4F21F3476FA0010A49C /* ZIKNoteListViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKNoteListViewDataSource.h; sourceTree = "<group>"; };
 		F82CB4F31F347C120010A49C /* ZIKEditorViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKEditorViewDataSource.h; sourceTree = "<group>"; };
@@ -168,15 +166,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		062063653C646E3F5374FAB8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2495F9DE2071C6C0A1E855AE /* Pods-ZIKViperDemo.debug.xcconfig */,
-				1402C240ECE26DFD4E8EC5F3 /* Pods-ZIKViperDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		CB0B681B12468E399D3741C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +192,6 @@
 				F8FFBF1F1F3CD29C00F87AF6 /* ZIKViper.xcodeproj */,
 				F85120D11F1A0DF500491E7F /* ZIKViperDemo */,
 				F85120D01F1A0DF500491E7F /* Products */,
-				062063653C646E3F5374FAB8 /* Pods */,
 				CB0B681B12468E399D3741C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -843,7 +831,6 @@
 		};
 		F85120E71F1A0DF500491E7F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2495F9DE2071C6C0A1E855AE /* Pods-ZIKViperDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -862,7 +849,6 @@
 		};
 		F85120E81F1A0DF500491E7F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1402C240ECE26DFD4E8EC5F3 /* Pods-ZIKViperDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;

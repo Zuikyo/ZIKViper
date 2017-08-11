@@ -1,5 +1,5 @@
 # ZIKViper
-iOS VIPER implementation. Demonstrating an architecture for discovering modules and dependency injection with protocol.
+iOS VIPER implementation. Demonstrating discovering modules and dependency injection with protocol.
 
 ---
 
