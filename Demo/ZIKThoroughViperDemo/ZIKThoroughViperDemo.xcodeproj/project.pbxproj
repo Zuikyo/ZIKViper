@@ -41,26 +41,7 @@
 		F82CB4A71F32CE060010A49C /* ZIKTRouter+ZIKTEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = F82CB4691F32CE060010A49C /* ZIKTRouter+ZIKTEditor.m */; };
 		F82CB4A81F32CE060010A49C /* ZIKTRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F82CB46B1F32CE060010A49C /* ZIKTRouter.m */; };
 		F82CB4D81F32F0E90010A49C /* ZIKTRouter+ZIKTLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = F82CB4D71F32F0E90010A49C /* ZIKTRouter+ZIKTLogin.m */; };
-		F8FFBF071F3CCD8C00F87AF6 /* ZIKTViper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FFBF061F3CCD8500F87AF6 /* ZIKTViper.framework */; };
-		F8FFBF081F3CCD8C00F87AF6 /* ZIKTViper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8FFBF061F3CCD8500F87AF6 /* ZIKTViper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F8FFBF051F3CCD8500F87AF6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8FFBF011F3CCD8500F87AF6 /* ZIKTViper.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8FFBE7B1F3CC28300F87AF6;
-			remoteInfo = ZIKTViper;
-		};
-		F8FFBF091F3CCD8C00F87AF6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8FFBF011F3CCD8500F87AF6 /* ZIKTViper.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8FFBE7A1F3CC28300F87AF6;
-			remoteInfo = ZIKTViper;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F8FFBEC01F3CC73400F87AF6 /* Embed Frameworks */ = {
@@ -69,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F8FFBF081F3CCD8C00F87AF6 /* ZIKTViper.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,7 +147,6 @@
 		F82CB4D71F32F0E90010A49C /* ZIKTRouter+ZIKTLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIKTRouter+ZIKTLogin.m"; sourceTree = "<group>"; };
 		F82CB4EF1F346C910010A49C /* ZIKTNoteListDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKTNoteListDataService.h; sourceTree = "<group>"; };
 		F85120CF1F1A0DF500491E7F /* ZIKThoroughViperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZIKThoroughViperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8FFBF011F3CCD8500F87AF6 /* ZIKTViper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZIKTViper.xcodeproj; path = ../../ZIKTViper.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +154,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8FFBF071F3CCD8C00F87AF6 /* ZIKTViper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +528,6 @@
 		F85120C61F1A0DF500491E7F = {
 			isa = PBXGroup;
 			children = (
-				F8FFBF011F3CCD8500F87AF6 /* ZIKTViper.xcodeproj */,
 				F82CB4021F32CE060010A49C /* ZIKThoroughViperDemo */,
 				F85120D01F1A0DF500491E7F /* Products */,
 			);
@@ -575,14 +552,6 @@
 			name = Adapter;
 			sourceTree = "<group>";
 		};
-		F8FFBF021F3CCD8500F87AF6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F8FFBF061F3CCD8500F87AF6 /* ZIKTViper.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -598,7 +567,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F8FFBF0A1F3CCD8C00F87AF6 /* PBXTargetDependency */,
 			);
 			name = ZIKThoroughViperDemo;
 			productName = ZIKViperDemo;
@@ -631,28 +599,12 @@
 			mainGroup = F85120C61F1A0DF500491E7F;
 			productRefGroup = F85120D01F1A0DF500491E7F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = F8FFBF021F3CCD8500F87AF6 /* Products */;
-					ProjectRef = F8FFBF011F3CCD8500F87AF6 /* ZIKTViper.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				F85120CE1F1A0DF500491E7F /* ZIKThoroughViperDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		F8FFBF061F3CCD8500F87AF6 /* ZIKTViper.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ZIKTViper.framework;
-			remoteRef = F8FFBF051F3CCD8500F87AF6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F85120CD1F1A0DF500491E7F /* Resources */ = {
@@ -707,14 +659,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F8FFBF0A1F3CCD8C00F87AF6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ZIKTViper;
-			targetProxy = F8FFBF091F3CCD8C00F87AF6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F82CB4081F32CE060010A49C /* LaunchScreen.storyboard */ = {
@@ -839,7 +783,6 @@
 				);
 				INFOPLIST_FILE = ZIKThoroughViperDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zuik.ZIKThoroughViperDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -856,7 +799,6 @@
 				);
 				INFOPLIST_FILE = ZIKThoroughViperDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zuik.ZIKThoroughViperDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
