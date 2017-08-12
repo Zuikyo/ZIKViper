@@ -133,7 +133,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self .eventHandler handleDidSelectRowAtIndexPath:indexPath];
+    [self.eventHandler handleDidSelectRowAtIndexPath:indexPath];
 }
 
 #pragma mark Route
