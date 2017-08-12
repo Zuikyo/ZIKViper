@@ -186,13 +186,15 @@ View层会引入各种自定义控件，这些控件有许多delegate，都在Vi
 @protocol ZIKNoteListViewEventHandler <NSObject>
 - (void)handleDidSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
-
+```
+```
 @protocol ZIKNoteListViewDataSource <NSObject>
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 - (NSString *)textOfCellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)detailTextOfCellForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
-
+```
+```
 @interface ZIKNoteListViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) id<ZIKNoteListViewEventHandler> eventHandler;
 @property (nonatomic, strong) id<ZIKNoteListViewDataSource> viewDataSource;
@@ -209,7 +211,6 @@ View层会引入各种自定义控件，这些控件有许多delegate，都在Vi
     cell.detailTextLabel.text = detailText;
     return cell;
 }
-
 
 #pragma mark UITableViewDataSource
 
@@ -256,10 +257,10 @@ Presenter是View和业务之间的中转站，它不包含业务实现代码，�
 示例代码：
 
 ```
-@interface ZIKNoteListViewPresenter ()
+@interface ZIKNoteListViewPresenter () <ZIKNoteListViewDataSource, ZIKNoteListViewEventHandler>
 @property (nonatomic, strong) id<ZIKNoteListWireframeProtocol> wireframe;
 @property (nonatomic, weak) id<ZIKViperView,ZIKNoteListViewProtocol> view;
-@property (nonatomic, strong) id<ZIKNoteListInteractorProtocol> interactor;
+@property (nonatomic, strong) id<ZIKNoteListInteractorInput> interactor;
 @end
 
 @implementation ZIKNoteListViewPresenter
@@ -310,7 +311,7 @@ Interactor是业务的实现者和维护者，它会调用各种Service来实现
 示例代码：
 
 ```
-@protocol ZIKNoteListInteractorProtocol <NSObject>
+@protocol ZIKNoteListInteractorInput <NSObject>
 - (void)loadAllNotes;
 - (NSInteger)noteCount;
 - (NSString *)titleForNoteAtIndex:(NSUInteger)idx;
@@ -319,8 +320,9 @@ Interactor是业务的实现者和维护者，它会调用各种Service来实现
 - (NSString *)noteTitleAtIndex:(NSUInteger)idx;
 - (NSString *)noteContentAtIndex:(NSUInteger)idx;
 @end
-
-@interface ZIKNoteListInteractor : NSObject <ZIKNoteListInteractorProtocol>
+```
+```
+@interface ZIKNoteListInteractor : NSObject <ZIKNoteListInteractorInput>
 @property (nonatomic, weak) id dataSource;
 @property (nonatomic, weak) id eventHandler;
 @end

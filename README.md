@@ -88,15 +88,15 @@ The key is the dependency rule:
 
 >The Dependency Rule
 >
-The concentric circles represent different areas of software. In general, the further in you go, the higher level the software becomes. The outer circles are mechanisms. The inner circles are policies.
+>The concentric circles represent different areas of software. In general, the further in you go, the higher level the software becomes. The outer circles are mechanisms. The inner circles are policies.
 >
-The overriding rule that makes this architecture work is The Dependency Rule. This rule says that source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle. In particular, the name of something declared in an outer circle must not be mentioned by the code in an inner circle. That includes, functions, classes. variables, or any other named software entity.
+>The overriding rule that makes this architecture work is The Dependency Rule. This rule says that source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle. In particular, the name of something declared in an outer circle must not be mentioned by the code in an inner circle. That includes, functions, classes. variables, or any other named software entity.
 
 **Those components in VIPER conform to this dependency rule**.
 
 ## <a name="implementation1"></a>First Implementation: Thorough VIPER
 
-I will give two implementations of VIPER here. The first is a thorough decoupled implementation. Then I will show another implementation, an easier one allowing some coupling.
+I will give two implementations of VIPER here. The first is a thoroughly decoupled implementation. Then I will show another implementation, an easier one allowing some coupling.
 
 The thorough implementation describes dependency injection, module communication, module decoupling. I add some new components.
 
@@ -108,17 +108,17 @@ I will use a note app as sample.
 
 ### <a name="implementation1-view"></a>View
 
-View can be a UIView + UIViewController, or a custom UIView, or a Manager of UIView, as long as it implement the interface of View.
+View can be a UIView + UIViewController, or a custom UIView, or a Manager of UIView, as long as it implements the interface of View.
 
 Responsibilities:
 
-* Assemble different view widgets, and manage their layout
-* Provide `view input` interface to presenter for updating view state
-* Send view events to `event handler` (the `presenter`)
-* Get data for displaying views from `view dataSource` (the `presenter`)
+* Assemble different view widgets, and manage their layouts
+* Provide `view input` interface to presenter for updating view
+* Send view events to `eventHandler` (the `presenter`)
+* Get data for displaying views from `viewDataSource` (the `presenter`)
 * Provide `routeSource` to `presenter` as the source view controller for navigation
 
-View will import many widgets and implements their delegates. View will wrap separate methods in these delegates into `ViewEventHandlerInput` and `ViewDataSourceInput` for different responsibilities.
+View will import many widgets and implements their delegates. View will separate methods in these delegates into `ViewEventHandlerInput` and `ViewDataSourceInput` for different responsibilities.
 
 `viewDataSource` and `viewEventHandler` stand for the two responsibilities of `presenter` for View.
 
@@ -183,7 +183,7 @@ Sample code:
 
 ### <a name="implementation1-presenter"></a>Presenter
 
-Presenter's responsibilities:
+Responsibilities:
 
 * Handle view event, interpreting to wireframe or interactor
 * Provide view dataSource from interactor to view
@@ -199,10 +199,10 @@ Presenter is a transfer station between view and interactor. It transforms diffe
 Sample code:
 
 ```
-@interface ZIKNoteListViewPresenter ()<ZIKNoteListViewEventHandler, ZIKNoteListViewDataSource>
+@interface ZIKNoteListViewPresenter ()<ZIKNoteListViewDataSource,ZIKNoteListViewEventHandler>
 @property (nonatomic, strong) id<ZIKNoteListWireframeProtocol> wireframe;
 @property (nonatomic, weak) id<ZIKViperView,ZIKNoteListViewProtocol> view;
-@property (nonatomic, strong) id<ZIKNoteListInteractorProtocol> interactor;
+@property (nonatomic, strong) id<ZIKNoteListInteractorInput> interactor;
 @end
 
 @implementation ZIKNoteListViewPresenter
@@ -238,7 +238,7 @@ Sample code:
 
 ### <a name="implementation1-interactor"></a>Interactor
 
-Presenter's responsibilities:
+Responsibilities:
 
 * Provide different use cases for each business
 * Maintain states of business logic
@@ -252,7 +252,7 @@ Most of the business logics is implemented in Interactor.
 Sample code:
 
 ```
-@protocol ZIKNoteListInteractorProtocol <NSObject>
+@protocol ZIKNoteListInteractorInput <NSObject>
 - (void)loadAllNotes;
 - (NSInteger)noteCount;
 - (NSString *)titleForNoteAtIndex:(NSUInteger)idx;
@@ -263,7 +263,7 @@ Sample code:
 @end
 ```
 ```
-@interface ZIKNoteListInteractor : NSObject <ZIKNoteListInteractorProtocol>
+@interface ZIKNoteListInteractor : NSObject <ZIKNoteListInteractorInput>
 @property (nonatomic, weak) id dataSource;
 @property (nonatomic, weak) id eventHandler;
 @end
@@ -335,7 +335,7 @@ A service can be considered as a VIPER module without `view` and `presenter`, it
 
 `Wireframe` is different with `router`. `Wireframe` describes the route from one module to another module. It provide route use cases to the presenter. So `wireframe` is an internal-facing interface inside a VIPER module. `Router` is responsible for fetching other modules and do real navigation works.
 
-Those use cases in `wireframe` like segue in storyboard. A route use case will config the view and it's depencendies, such as transition animations.
+Those use cases in `wireframe` are similar to segues in storyboard. A route use case will config the view and it's depencendies, such as transition animations.
 
 Sample interface:
 
@@ -361,7 +361,6 @@ Sample code:
 
 ```
 @interface ZIKTRouter : NSObject <ZIKTViperRouter>
-///封装UIKit的跳转方法
 + (void)pushViewController:(UIViewController *)destination fromViewController:(UIViewController *)source animated:(BOOL)animated;
 + (void)popViewController:(UIViewController *)viewController animated:(BOOL)animated;
 + (void)presentViewController:(UIViewController *)viewControllerToPresent fromViewController:(UIViewController *)source animated:(BOOL)animated completion:(void (^ __nullable)(void))completion;
@@ -429,10 +428,10 @@ So, parent module and submodule doesn't really know each other, they only commun
 
 ## <a name="map-to-mvc"></a>Refactor MVC
 
-If you want to refactor a MVC module into a VIPER module, you can follow these steps:
+If you want to refactor a MVC module to a VIPER module, you can follow these steps:
 
 * Tidy up code in controller, separate different code by different responsibilities with `pragma mark`
-* Move methods to different files as components in VIPER. View, Presenter, Interactor can directly import and use their classes
+* Move methods to different files as components in VIPER. View, Presenter, Interactor can directly import and use each other
 * Decouple different components with interface
 
 Below is the sample:
@@ -515,11 +514,11 @@ Below is the diagram:
 
 Router changes a lot comparing the first implementation. View, presenter and interactor can all use router. View can use view router to get sub view. Presenter can use view router to perform navigation. Interactor can use service router to get service.
 
-So router in this implementation is `wireframe`, `router` and `builder` in first implementation.
+So router in this implementation contains `wireframe`, `router` and `builder` in first implementation.
 
 But how to decouple modules now?
 
-Let me introduce [ZIKRouter](https://github.com/Zuikyo/ZIKRouter). It's a interface-oriented router to let you get a module by it's protocol. So you still don't need to import other module's header, just need their interface. And ZIKRouter also supports adapter, you can use multi protocol to get the same module.
+Let me introduce [ZIKRouter](https://github.com/Zuikyo/ZIKRouter). It's a interface-oriented router to let you get a module by it's protocol. So you still don't need to import other module's header, just need their interface. And ZIKRouter also supports adapter, you can use multi protocols to get the same module.
 
 The sample code:
 
@@ -567,7 +566,7 @@ The sample code:
 
 ## <a name="demo-template"></a>Demo and Templates
 
-There're two Demos for two implementations. You can compare their difference.
+There're two Demos for two implementations. You can compare their differences.
 
 There're also Xcode file templates for quickly generating VIPER code. You can find them in the `Templates` folder. Copy those `XXX.xctemplate` folders to `~/Library/Developer/Xcode/Templates/`, then you can use them in Xcode `New->File->Template`.
 
