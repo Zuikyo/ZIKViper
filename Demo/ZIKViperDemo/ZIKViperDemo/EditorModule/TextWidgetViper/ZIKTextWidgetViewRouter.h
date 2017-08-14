@@ -17,7 +17,7 @@ DeclareRoutableViewProtocol(ZIKTextWidgetViewProtocol, ZIKTextWidgetViewRouter)
 
 /*
  //define _ZIKTextWidgetConfigProtocol_ in ZIKTextWidgetConfigProtocol.h file, and use it like ZIKViewRouterForConfig(_ZIKTextWidgetConfigProtocol_). If is not registered as routable protocol anymore, remember to remove macro _ZIKTextWidgetConfigProtocol_
- //#define _ZIKTextWidgetConfigProtocol_ (Protocol<ZIKRoutableConfigDynamicGetter> *)@protocol(ZIKTextWidgetConfigProtocol)
+ //#define _ZIKTextWidgetConfigProtocol_ (Protocol<ZIKRoutableViewConfigDynamicGetter> *)@protocol(ZIKTextWidgetConfigProtocol)
  
  //Create ZIKTextWidgetConfigProtocol.h file for your configuration
  //DeclareRoutableViewProtocol(ZIKTextWidgetConfigProtocol, ZIKTextWidgetViewRouter)

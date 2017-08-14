@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define _NoteEditorProtocol_ (Protocol<ZIKRoutableConfigDynamicGetter> *)@protocol(NoteEditorProtocol)
+#define _NoteEditorProtocol_ (Protocol<ZIKRoutableViewConfigDynamicGetter> *)@protocol(NoteEditorProtocol)
 
 @protocol NoteEditorProtocol <NSObject>
 @property (nonatomic, assign) BOOL previewing;
