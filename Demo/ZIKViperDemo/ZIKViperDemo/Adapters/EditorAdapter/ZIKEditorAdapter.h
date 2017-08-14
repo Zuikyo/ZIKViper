@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NoteEditorProtocol.h"
 @import ZIKRouter;
 
-DeclareRoutableViewConfigProtocol(NoteEditorProtocol, ZIKEditorViewRouter)
 @interface ZIKEditorAdapter : NSObject
 
 @end

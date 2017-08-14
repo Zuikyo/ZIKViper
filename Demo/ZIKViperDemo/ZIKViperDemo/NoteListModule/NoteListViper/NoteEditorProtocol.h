@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "NoteEditorDelegate.h"
 #import "ZIKEditorDelegate.h"
+@import ZIKRouter;
 
 NS_ASSUME_NONNULL_BEGIN
+
+DeclareRoutableViewConfigProtocol(NoteEditorProtocol, ZIKEditorViewRouter)
 
 #define _NoteEditorProtocol_ (Protocol<ZIKRoutableViewConfigDynamicGetter> *)@protocol(NoteEditorProtocol)
 
