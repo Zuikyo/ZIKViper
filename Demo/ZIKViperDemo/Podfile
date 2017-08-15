@@ -1,5 +1,6 @@
 use_frameworks!
 platform :ios, '8.0'
 target :ZIKViperDemo do
-pod 'ZIKViper'
+pod 'ZIKRouter', :git => 'https://github.com/Zuikyo/ZIKRouter.git'
+pod 'ZIKViper', :git => 'https://github.com/Zuikyo/ZIKViper.git'
 end
