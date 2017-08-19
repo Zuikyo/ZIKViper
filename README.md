@@ -76,7 +76,7 @@ If it's new for you, check out these articles to learn VIPER architecture:
 
 ## <a name="Clean-Architecture"></a>Clean Architecture
 
-[Mutual mobile](https://mutualmobile.com/posts/meet-viper-fast-agile-non-lethal-ios-architecture-framework) first came up with VIPER in 2013. VIPER is an application of `Clean Architecture`, so you have to know `Clean Architecture` before VIPER practice.
+[Mutual mobile](https://mutualmobile.com/posts/meet-viper-fast-agile-non-lethal-ios-architecture-framework) first came up with VIPER in 2013. VIPER is an application of `Clean Architecture`, so you have to know `Clean Architecture` before practicing VIPER.
 
 [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) divides an app’s logical structure into distinct layers of responsibility. This makes it easier to isolate dependencies and to test the interactions at the boundaries between layers.
 
