@@ -15,11 +15,7 @@
 #import "___FILEBASENAME___Interactor.h"
 //#import "___FILEBASENAME___ViewInput.h"
 
-RegisterRoutableViewForExclusiveRouter(___FILEBASENAMEASIDENTIFIER___View, ___FILEBASENAMEASIDENTIFIER___ViewRouter)
-//RegisterRoutableViewProtocol(___FILEBASENAME___ViewInput, ___FILEBASENAMEASIDENTIFIER___ViewRouter)
-
 /*
- //RegisterRoutableViewConfigProtocol(___FILEBASENAME___ConfigProtocol, ___FILEBASENAMEASIDENTIFIER___ViewRouter)
 @implementation ___FILEBASENAMEASIDENTIFIER___ViewRouteConfiguration
  
  - (id)copyWithZone:(nullable NSZone *)zone {
@@ -30,11 +26,23 @@ RegisterRoutableViewForExclusiveRouter(___FILEBASENAMEASIDENTIFIER___View, ___FI
 @end
  */
 
+@interface ___FILEBASENAMEASIDENTIFIER___View (___FILEBASENAMEASIDENTIFIER___ViewRouter) <ZIKRoutableView>
+@end
+@implementation ___FILEBASENAMEASIDENTIFIER___View (___FILEBASENAMEASIDENTIFIER___ViewRouter)
+@end
+
 @interface ___FILEBASENAMEASIDENTIFIER___ViewRouter ()
 
 @end
 
 @implementation ___FILEBASENAMEASIDENTIFIER___ViewRouter
+
++ (void)registerRoutableDestination {
+    ZIKViewRouter_registerViewForExclusiveRouter([___FILEBASENAMEASIDENTIFIER___View class], self);
+    //ZIKViewRouter_registerView([___FILEBASENAMEASIDENTIFIER___View class], self);
+    //ZIKViewRouter_registerViewProtocol(@procotol(___FILEBASENAME___ViewInput),self);
+    //ZIKViewRouter_registerConfigProtocol(@procotol(___FILEBASENAME___ConfigProtocol),self);
+}
 
 - (nullable ___FILEBASENAMEASIDENTIFIER___View *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
 #error create destination
