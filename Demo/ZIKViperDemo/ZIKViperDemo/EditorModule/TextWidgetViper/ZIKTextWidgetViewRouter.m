@@ -14,25 +14,22 @@
 #import "ZIKTextWidgetInteractor.h"
 #import "ZIKTextWidgetViewProtocol.h"
 
-RegisterRoutableView(ZIKTextView, ZIKTextWidgetViewRouter)
-RegisterRoutableViewProtocol(ZIKTextWidgetViewProtocol, ZIKTextWidgetViewRouter)
-/*
- //RegisterRoutableViewWithViewProtocol(ZIKTextWidgetViewController, ZIKTextWidgetConfigProtocol, ZIKTextWidgetViewRouter)
-@implementation ZIKTextWidgetViewRouteConfiguration
- 
- - (id)copyWithZone:(nullable NSZone *)zone {
-     ZIKTextWidgetViewRouteConfiguration *config = [super copyWithZone:zone];
- 
- }
- 
+@interface ZIKTextView (ZIKTextWidgetViewRouter) <ZIKRoutableView>
 @end
- */
+@implementation ZIKTextView (ZIKTextWidgetViewRouter)
+@end
 
 @interface ZIKTextWidgetViewRouter ()
 
 @end
 
 @implementation ZIKTextWidgetViewRouter
+
++ (void)registerRoutableDestination {
+    ZIKViewRouter_registerView([ZIKTextView class], self);
+    ZIKViewRouter_registerViewProtocol(@protocol(ZIKTextWidgetViewProtocol), self);
+    
+}
 
 - (UIView *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
     //create your view, and initialize it with configuration

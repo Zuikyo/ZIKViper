@@ -9,10 +9,17 @@
 #import "ZIKLoginServiceRouter.h"
 #import "ZIKLoginService.h"
 
-RegisterRoutableService(ZIKLoginService, ZIKLoginServiceRouter)
-RegisterRoutableServiceProtocol(ZIKLoginServiceInput, ZIKLoginServiceRouter)
+@interface ZIKLoginService (ZIKLoginServiceRouter) <ZIKRoutableService>
+@end
+@implementation ZIKLoginService (ZIKLoginServiceRouter)
+@end
 
 @implementation ZIKLoginServiceRouter
+
++ (void)registerRoutableDestination {
+    ZIKServiceRouter_registerService([ZIKLoginService class], self);
+    ZIKServiceRouter_registerServiceProtocol(@protocol(ZIKLoginServiceInput), self);
+}
 
 - (id)destinationWithConfiguration:(__kindof ZIKRouteConfiguration *)configuration {
     ZIKLoginService *destination = [ZIKLoginService sharedInstance];

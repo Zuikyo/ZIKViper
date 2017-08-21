@@ -11,8 +11,6 @@
 #import "ZIKEditorViewRouter.h"
 @import ZIKRouter.Private;
 
-RegisterRoutableViewConfigProtocol(NoteEditorProtocol, ZIKEditorViewRouter)
-
 @interface ZIKEditorViewConfiguration (NoteEditorProtocol) <NoteEditorProtocol>
 
 @end
@@ -26,5 +24,9 @@ RegisterRoutableViewConfigProtocol(NoteEditorProtocol, ZIKEditorViewRouter)
 @end
 
 @implementation ZIKEditorAdapter
+
++ (void)registerRoutableDestination {
+    ZIKViewRouter_registerConfigProtocol(@protocol(NoteEditorProtocol), [ZIKEditorViewRouter class]);
+}
 
 @end

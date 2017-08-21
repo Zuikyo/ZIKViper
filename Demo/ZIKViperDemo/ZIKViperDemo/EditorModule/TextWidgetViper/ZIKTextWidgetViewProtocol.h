@@ -7,8 +7,9 @@
 //
 #import <Foundation/Foundation.h>
 #import "ZIKTextViewDataSource.h"
+@import ZIKRouter;
 
-@protocol ZIKTextWidgetViewProtocol <NSObject>
+@protocol ZIKTextWidgetViewProtocol <ZIKViewRoutable>
 @property (nonatomic, weak) id<ZIKTextViewDataSource> dataSource;
 @property (nonatomic, strong) UIColor *colorForCopyright;
 - (void)setPrefixText:(NSString *)prefix;

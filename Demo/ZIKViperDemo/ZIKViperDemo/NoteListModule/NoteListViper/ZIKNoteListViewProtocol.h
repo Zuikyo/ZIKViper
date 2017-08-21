@@ -6,8 +6,9 @@
 //  Copyright © 2017 zuik. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+@import ZIKRouter;
 
-#define _ZIKNoteListViewProtocol_ (Protocol<ZIKRoutableViewDynamicGetter> *)@protocol(ZIKNoteListViewProtocol)
-@protocol ZIKNoteListViewProtocol <NSObject>
+#define _ZIKNoteListViewProtocol_ (Protocol<ZIKViewRoutable> *)@protocol(ZIKNoteListViewProtocol)
+@protocol ZIKNoteListViewProtocol <ZIKViewRoutable>
 - (UITableView *)noteListTableView;
 @end

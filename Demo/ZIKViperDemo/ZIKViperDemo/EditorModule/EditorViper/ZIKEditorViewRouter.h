@@ -11,8 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-DeclareRoutableViewConfigProtocol(ZIKEditorConfigProtocol, ZIKEditorViewRouter)
-
 @interface ZIKEditorViewConfiguration : ZIKViewRouteConfiguration <NSCopying,ZIKEditorConfigProtocol>
 @property (nonatomic, assign) BOOL previewing;
 @property (nonatomic, weak) id<ZIKEditorDelegate> delegate;

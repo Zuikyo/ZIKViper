@@ -8,8 +8,6 @@
 
 @import ZIKRouter;
 
-DeclareRoutableServiceProtocol(ZIKLoginServiceInput, ZIKLoginServiceRouter)
-
-@interface ZIKLoginServiceRouter : ZIKServiceRouter <ZIKRouterProtocol>
+@interface ZIKLoginServiceRouter : ZIKServiceRouter <ZIKServiceRouterProtocol>
 
 @end

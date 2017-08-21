@@ -17,10 +17,17 @@
 #import "ZIKLoginInteractor.h"
 #import "ZIKLoginViewProtocol.h"
 
-RegisterRoutableView(ZIKLoginViewController, ZIKLoginViewRouter)
-RegisterRoutableViewProtocol(ZIKLoginViewProtocol, ZIKLoginViewRouter)
+@interface ZIKLoginViewController (ZIKLoginViewRouter) <ZIKRoutableView>
+@end
+@implementation ZIKLoginViewController (ZIKLoginViewRouter)
+@end
 
 @implementation ZIKLoginViewRouter
+
++ (void)registerRoutableDestination {
+    ZIKViewRouter_registerView([ZIKLoginViewController class], self);
+    ZIKViewRouter_registerViewProtocol(@protocol(ZIKLoginViewProtocol), self);
+}
 
 - (id)destinationWithConfiguration:(__kindof ZIKRouteConfiguration *)configuration {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

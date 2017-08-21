@@ -10,6 +10,6 @@
 #import "NoteEditorProtocol.h"
 @import ZIKRouter;
 
-@interface ZIKEditorAdapter : NSObject
+@interface ZIKEditorAdapter : ZIKViewRouteAdapter
 
 @end

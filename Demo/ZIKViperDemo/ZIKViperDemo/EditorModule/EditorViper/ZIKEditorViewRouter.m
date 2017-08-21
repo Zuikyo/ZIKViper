@@ -15,8 +15,6 @@
 #import "ZIKEditorInteractor.h"
 #import "ZIKEditorViewProtocol.h"
 
-RegisterRoutableView(ZIKEditorViewController, ZIKEditorViewRouter)
-RegisterRoutableViewConfigProtocol(ZIKEditorConfigProtocol, ZIKEditorViewRouter)
 
 @interface ZIKEditorViewConfiguration ()
 @property (nonatomic, assign) ZIKEditorMode editMode;
@@ -46,11 +44,21 @@ RegisterRoutableViewConfigProtocol(ZIKEditorConfigProtocol, ZIKEditorViewRouter)
 
 @end
 
+@interface ZIKEditorViewController (ZIKEditorViewRouter) <ZIKRoutableView>
+@end
+@implementation ZIKEditorViewController (ZIKEditorViewRouter)
+@end
+
 @interface ZIKEditorViewRouter ()
 
 @end
 
 @implementation ZIKEditorViewRouter
+
++ (void)registerRoutableDestination {
+    ZIKViewRouter_registerView([ZIKEditorViewController class], self);
+    ZIKViewRouter_registerConfigProtocol(@protocol(ZIKEditorConfigProtocol), self);
+}
 
 - (UIViewController *)destinationWithConfiguration:(ZIKEditorViewConfiguration *)configuration {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

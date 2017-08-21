@@ -11,8 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-DeclareRoutableViewProtocol(ZIKNoteListViewProtocol, ZIKNoteListViewRouter)
-
 @interface ZIKNoteListViewRouter : ZIKViewRouter <ZIKViewRouterProtocol,ZIKViperRouter>
 
 @end

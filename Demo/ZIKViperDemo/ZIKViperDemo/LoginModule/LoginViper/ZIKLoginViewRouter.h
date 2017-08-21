@@ -8,7 +8,6 @@
 
 @import ZIKRouter;
 
-DeclareRoutableViewProtocol(ZIKLoginViewProtocol, ZIKLoginViewRouter)
 @interface ZIKLoginViewRouter : ZIKViewRouter <ZIKViewRouterProtocol>
 
 @end

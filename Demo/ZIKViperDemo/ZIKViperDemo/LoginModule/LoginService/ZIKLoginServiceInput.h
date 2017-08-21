@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@import ZIKRouter;
 
 NS_ASSUME_NONNULL_BEGIN
 
 //If ZIKLoginServiceInput is not registered as routable protocol, remember to remove this macro
 #define _ZIKLoginServiceInput_ (Protocol<ZIKRoutableServiceDynamicGetter> *)@protocol(ZIKLoginServiceInput)
 
-@protocol ZIKLoginServiceInput <NSObject>
+@protocol ZIKLoginServiceInput <ZIKServiceRoutable>
 - (void)loginWithAccount:(NSString *)account
                 password:(NSString *)password
                  success:(void(^_Nullable)(void))successHandler

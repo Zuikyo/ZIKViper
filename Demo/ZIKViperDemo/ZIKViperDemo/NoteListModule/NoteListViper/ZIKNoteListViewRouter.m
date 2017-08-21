@@ -15,14 +15,21 @@
 #import "ZIKNoteListInteractor.h"
 #import "ZIKNoteListViewProtocol.h"
 
-RegisterRoutableViewForExclusiveRouter(ZIKNoteListViewController, ZIKNoteListViewRouter)
-RegisterRoutableViewProtocol(ZIKNoteListViewProtocol, ZIKNoteListViewRouter)
+@interface ZIKNoteListViewController (ZIKNoteListViewRouter) <ZIKRoutableView>
+@end
+@implementation ZIKNoteListViewController (ZIKNoteListViewRouter)
+@end
 
 @interface ZIKNoteListViewRouter ()
 
 @end
 
 @implementation ZIKNoteListViewRouter
+
++ (void)registerRoutableDestination {
+    ZIKViewRouter_registerViewForExclusiveRouter([ZIKNoteListViewController class], self);
+    ZIKViewRouter_registerViewProtocol(@protocol(ZIKNoteListViewProtocol), self);
+}
 
 - (UIViewController *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
