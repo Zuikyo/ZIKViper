@@ -6,11 +6,13 @@
 //___COPYRIGHT___
 //
 #import <Foundation/Foundation.h>
-#import <ZIKRouter/ZIKViewRoutable.h>
+//#import <ZIKRouter/ZIKViewRoutable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ___FILEBASENAME___ViewInput <ZIKViewRoutable>
+//You can use ZIKViewRoutable to make ___FILEBASENAME___ViewInput routable
+
+@protocol ___FILEBASENAME___ViewInput <NSObject>
 
 @end
 
