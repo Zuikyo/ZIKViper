@@ -508,13 +508,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F85120E61F1A0DF500491E7F /* Build configuration list for PBXNativeTarget "ZIKViperDemo" */;
 			buildPhases = (
-				7121E5918D6E7B234F2680C9 /* [CP] Check Pods Manifest.lock */,
 				F85120CB1F1A0DF500491E7F /* Sources */,
 				F85120CC1F1A0DF500491E7F /* Frameworks */,
 				F85120CD1F1A0DF500491E7F /* Resources */,
 				F8FD8E0C1F38DA5B00D7EECB /* Embed Frameworks */,
-				E762EA2C71F7D7385D952711 /* [CP] Embed Pods Frameworks */,
-				00FE7C55F3637935AD9E0A12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -570,60 +567,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		00FE7C55F3637935AD9E0A12 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZIKViperDemo/Pods-ZIKViperDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7121E5918D6E7B234F2680C9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ZIKViperDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E762EA2C71F7D7385D952711 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ZIKViperDemo/Pods-ZIKViperDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ZIKRouter/ZIKRouter.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZIKRouter.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZIKViperDemo/Pods-ZIKViperDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F85120CB1F1A0DF500491E7F /* Sources */ = {
