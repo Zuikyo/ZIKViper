@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 //If ZIKEditorConfigProtocol is not registered as routable protocol, remember to remove this macro
-#define _ZIKEditorConfigProtocol_ (Protocol<ZIKRoutableViewConfigDynamicGetter> *)@protocol(ZIKEditorConfigProtocol)
+#define _ZIKEditorConfigProtocol_ (Protocol<ZIKViewConfigRoutable> *)@protocol(ZIKEditorConfigProtocol)
 
 @class ZIKNoteModel;
 @protocol ZIKEditorConfigProtocol <ZIKViewConfigRoutable>
