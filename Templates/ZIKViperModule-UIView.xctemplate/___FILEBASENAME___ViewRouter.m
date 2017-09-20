@@ -7,8 +7,8 @@
 //
 
 #import "___FILEBASENAME___ViewRouter.h"
-#import <ZIKRouter/ZIKRouter+Private.h>
-#import <ZIKRouter/ZIKViewRouter+Private.h>
+#import <ZIKRouter/ZIKRouterInternal.h>
+#import <ZIKRouter/ZIKViewRouterInternal.h>
 #import <ZIKViper/ZIKViper.h>
 #import "___FILEBASENAME___View.h"
 #import "___FILEBASENAME___ViewPresenter.h"
