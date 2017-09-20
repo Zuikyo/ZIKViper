@@ -72,12 +72,13 @@
     NSAssert([ZIKViewRouter isViperAssembledForView:destination], @"Viper should be assembled");
 }
 
-+ (NSArray<NSNumber *> *)supportedRouteTypes {
-    return @[@(ZIKViewRouteTypePresentModally),
-             @(ZIKViewRouteTypePresentAsPopover),
-             @(ZIKViewRouteTypePerformSegue),
-             @(ZIKViewRouteTypeShow),
-             @(ZIKViewRouteTypeShowDetail)];
++ (ZIKViewRouteTypeMask)supportedRouteTypes {
+    return
+    ZIKViewRouteTypeMaskPresentModally |
+    ZIKViewRouteTypeMaskPresentAsPopover |
+    ZIKViewRouteTypeMaskPerformSegue |
+    ZIKViewRouteTypeMaskShow |
+    ZIKViewRouteTypeMaskShowDetail;
 }
 
 @end
