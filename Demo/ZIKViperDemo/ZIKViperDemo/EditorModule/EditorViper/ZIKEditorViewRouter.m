@@ -7,7 +7,7 @@
 //
 
 #import "ZIKEditorViewRouter.h"
-@import ZIKRouter.Private;
+@import ZIKRouter.Internal;
 #import <ZIKViper/ZIKViper.h>
 
 #import "ZIKEditorViewController.h"

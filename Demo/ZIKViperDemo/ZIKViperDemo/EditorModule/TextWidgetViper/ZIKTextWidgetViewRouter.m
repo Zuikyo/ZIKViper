@@ -7,7 +7,7 @@
 //
 
 #import "ZIKTextWidgetViewRouter.h"
-@import ZIKRouter.Private;
+@import ZIKRouter.Internal;
 #import <ZIKViper/ZIKViper.h>
 #import "ZIKTextView.h"
 #import "ZIKTextWidgetViewPresenter.h"
@@ -83,8 +83,8 @@
     NSAssert([ZIKViewRouter isViperAssembledForView:destination], @"Viper should be assembled");
 }
 
-+ (NSArray<NSNumber *> *)supportedRouteTypes {
-    return kDefaultRouteTypesForView;
++ (ZIKViewRouteTypeMask)supportedRouteTypes {
+    return ZIKViewRouteTypeMaskUIViewDefault;
 }
 
 /*

@@ -7,7 +7,7 @@
 //
 
 #import "ZIKViewRouter+ZIKViper.h"
-#import <ZIKRouter/ZIKRouter+Private.h>
+#import <ZIKRouter/ZIKRouterInternal.h>
 #import "ZIKViperRouter.h"
 #import "ZIKViperViewPrivate.h"
 #import "ZIKViperPresenterPrivate.h"

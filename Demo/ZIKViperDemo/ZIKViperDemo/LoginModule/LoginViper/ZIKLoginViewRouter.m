@@ -7,7 +7,7 @@
 //
 
 #import "ZIKLoginViewRouter.h"
-@import ZIKRouter.Private;
+@import ZIKRouter.Internal;
 #import <ZIKViper/ZIKViewRouter+ZIKViper.h>
 #import <ZIKViper/ZIKViperViewPrivate.h>
 #import <ZIKViper/ZIKViperInteractorPrivate.h>

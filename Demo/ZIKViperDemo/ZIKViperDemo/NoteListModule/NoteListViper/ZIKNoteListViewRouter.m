@@ -7,7 +7,7 @@
 //
 
 #import "ZIKNoteListViewRouter.h"
-@import ZIKRouter.Private;
+@import ZIKRouter.Internal;
 #import <ZIKViper/ZIKViewRouter+ZIKViper.h>
 #import <ZIKViper/ZIKViperViewPrivate.h>
 #import "ZIKNoteListViewController.h"
