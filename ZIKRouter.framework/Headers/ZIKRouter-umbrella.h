@@ -3,7 +3,10 @@
 //  ZIKRouter
 //
 //  Created by zuik on 2017/7/21.
-//  Copyright © 2017年 zuik. All rights reserved.
+//  Copyright © 2017 zuik. All rights reserved.
+//
+//  This source code is licensed under the MIT-style license found in the
+//  LICENSE file in the root directory of this source tree.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,6 +14,9 @@
 #import "ZIKRouter.h"
 #import "ZIKViewRouter.h"
 #import "ZIKServiceRouter.h"
+#import "ZIKViewRouterProtocol.h"
+#import "ZIKViewRouteConfiguration.h"
+#import "ZIKRouterRuntimeHelper.h"
 #import "ZIKViewRouteAdapter.h"
 #import "ZIKServiceRouteAdapter.h"
 #import "ZIKViewRoutable.h"

@@ -3,14 +3,15 @@
 //  ZIKRouter
 //
 //  Created by zuik on 2017/5/31.
-//  Copyright © 2017年 zuik. All rights reserved.
+//  Copyright © 2017 zuik. All rights reserved.
+//
+//  This source code is licensed under the MIT-style license found in the
+//  LICENSE file in the root directory of this source tree.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-extern BOOL ZIKClassIsCustomClass(Class class);
 
 @protocol ZIKViperView;
 @interface UIView (ZIKViewRouter)

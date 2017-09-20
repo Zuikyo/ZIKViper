@@ -1,22 +1,17 @@
 //
-//  ZIKRouter_Private.h
+//  ZIKRouterInternal.h
 //  ZIKRouter
 //
 //  Created by zuik on 2017/5/24.
-//  Copyright © 2017年 zuik. All rights reserved.
+//  Copyright © 2017 zuik. All rights reserved.
+//
+//  This source code is licensed under the MIT-style license found in the
+//  LICENSE file in the root directory of this source tree.
 //
 
 #import "ZIKRouter.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-extern bool ZIKRouter_replaceMethodWithMethod(Class originalClass, SEL originalSelector, Class swizzledClass, SEL swizzledSelector);
-extern bool ZIKRouter_replaceMethodWithMethodType(Class originalClass, SEL originalSelector, bool originIsClassMethod, Class swizzledClass, SEL swizzledSelector, bool swizzledIsClassMethod);
-extern IMP ZIKRouter_replaceMethodWithMethodAndGetOriginalImp(Class originalClass, SEL originalSelector, Class swizzledClass, SEL swizzledSelector);
-extern void ZIKRouter_enumerateClassList(void(^handler)(Class class));
-extern void ZIKRouter_enumerateProtocolList(void(^handler)(Protocol *protocol));
-extern bool ZIKRouter_classIsSubclassOfClass(Class class, Class parentClass);
-extern NSArray *ZIKRouter_subclassesComformToProtocol(NSArray<Class> *classes, Protocol *protocol);
 
 ///expost APIs to subclass
 @interface ZIKRouter ()
