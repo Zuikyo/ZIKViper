@@ -22,8 +22,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKNoteListViewEventHandler)], nil);
+    
+    self.noteListTableView.delegate = self;
+    self.noteListTableView.dataSource = self;
+    [self registerForPreviewingWithDelegate:self.eventHandler sourceView:self.view];
+    UIBarButtonItem *addNoteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                 target:self.eventHandler
+                                                                                 action:@selector(didTouchNavigationBarAddButton)];
+    self.navigationItem.rightBarButtonItem = addNoteItem;
+    
+    if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
+        [self.eventHandler handleViewReady];
+    }
 }
 
 - (UIViewController *)routeSource {
@@ -32,21 +44,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.ZIK_routed == NO) {
-        NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKNoteListViewEventHandler)], nil);
-        
-        self.noteListTableView.delegate = self;
-        self.noteListTableView.dataSource = self;
-        [self registerForPreviewingWithDelegate:self.eventHandler sourceView:self.view];
-        UIBarButtonItem *addNoteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                                     target:self.eventHandler
-                                                                                     action:@selector(didTouchNavigationBarAddButton)];
-        self.navigationItem.rightBarButtonItem = addNoteItem;
-        
-        if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
-            [self.eventHandler handleViewReady];
-        }
-    }
     if ([self.eventHandler respondsToSelector:@selector(handleViewWillAppear:)]) {
         [self.eventHandler handleViewWillAppear:animated];
     };

@@ -27,6 +27,10 @@
     if (self.message) {
         self.messageLabel.text = self.message;
     }
+    NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKLoginViewEventHandler)], nil);
+    if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
+        [self.eventHandler handleViewReady];
+    }
 }
 
 - (UIViewController *)routeSource {
@@ -35,12 +39,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.ZIK_routed == NO) {
-        NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKLoginViewEventHandler)], nil);
-        if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
-            [self.eventHandler handleViewReady];
-        }
-    }
     if ([self.eventHandler respondsToSelector:@selector(handleViewWillAppear:)]) {
         [self.eventHandler handleViewWillAppear:animated];
     };

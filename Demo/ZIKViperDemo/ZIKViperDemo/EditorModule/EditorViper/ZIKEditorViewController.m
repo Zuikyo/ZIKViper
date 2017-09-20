@@ -27,6 +27,17 @@
     [super viewDidLoad];
     
     self.title = @"Editor";
+    
+    NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKEditorViewEventHandler)], nil);
+    UIBarButtonItem *addNoteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                 target:self.eventHandler
+                                                                                 action:@selector(didTouchNavigationBarDoneButton)];
+    self.navigationItem.rightBarButtonItem = addNoteItem;
+    
+    //Sub viper modules are already prepared in -viewDidLoad
+    if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
+        [self.eventHandler handleViewReady];
+    }
 }
 
 - (UIViewController *)routeSource {
@@ -35,17 +46,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    //You can also put your config work here, in case some sub viper module is not prepared yet in -viewDidLoad
     if (self.ZIK_routed == NO) {
-        NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKEditorViewEventHandler)], nil);
-        UIBarButtonItem *addNoteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                     target:self.eventHandler
-                                                                                     action:@selector(didTouchNavigationBarDoneButton)];
-        self.navigationItem.rightBarButtonItem = addNoteItem;
-        
-        //Note: in -viewWillAppear:, if this view controller contains sub routable UIView added from external (addSubview:, storyboard or xib), it may not be ready yet. The UIView has to search the UIViewController with -nextResponder to prepare itself, nextResponder can only be gained after -willMoveToWindow:. But -willMoveToWindow: may not be called yet in -viewWillAppear:. If the subview is not ready, config the subview in -handleViewReady may fail. If you can make sure there is no sub routable UIView or the subview is added with router before -viewWillAppear:, you can do -handleViewReady in -viewWillAppear:.
-        if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
-            [self.eventHandler handleViewReady];
-        }
+//        NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKEditorViewEventHandler)], nil);
+//        UIBarButtonItem *addNoteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+//                                                                                     target:self.eventHandler
+//                                                                                     action:@selector(didTouchNavigationBarDoneButton)];
+//        self.navigationItem.rightBarButtonItem = addNoteItem;
+//
+//        if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
+//            [self.eventHandler handleViewReady];
+//        }
     }
     if ([self.eventHandler respondsToSelector:@selector(handleViewWillAppear:)]) {
         [self.eventHandler handleViewWillAppear:animated];
