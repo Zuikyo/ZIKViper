@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZIKViper"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "iOS VIPER implementation, relying on ZIKRouter."
   s.description  = <<-DESC
                 iOS VIPER implementation, relying on ZIKRouter. Designed for discovering modules and dependency injection with protocol.
