@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   s.frameworks = "Foundation", "UIKit"
   s.requires_arc = true
 
-  s.dependency "ZIKRouter"
+  s.dependency "ZIKRouter", '>= 0.6'
 
 end
