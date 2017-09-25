@@ -153,6 +153,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F82986081F7971DA005C8C53 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F85120D51F1A0DF500491E7F /* AppDelegate.h */,
+				F85120D61F1A0DF500491E7F /* AppDelegate.m */,
+				F85120DB1F1A0DF500491E7F /* Main.storyboard */,
+				F85120DE1F1A0DF500491E7F /* Assets.xcassets */,
+				F85120E01F1A0DF500491E7F /* LaunchScreen.storyboard */,
+				F85120E31F1A0DF500491E7F /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		F84A010C1F1C916100959026 /* TextWidgetViper */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,18 +197,13 @@
 		F85120D11F1A0DF500491E7F /* ZIKViperDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F82986081F7971DA005C8C53 /* Application */,
 				F8DF8D601F25F95000685AC2 /* Adapters */,
-				F85121841F1B4DB900491E7F /* NoteModel */,
-				F851217F1F1B49F900491E7F /* NoteService */,
 				F851211B1F1A5E7D00491E7F /* LoginModule */,
 				F85121491F1B333E00491E7F /* NoteListModule */,
 				F85121881F1B9C3A00491E7F /* EditorModule */,
-				F85120D51F1A0DF500491E7F /* AppDelegate.h */,
-				F85120D61F1A0DF500491E7F /* AppDelegate.m */,
-				F85120DB1F1A0DF500491E7F /* Main.storyboard */,
-				F85120DE1F1A0DF500491E7F /* Assets.xcassets */,
-				F85120E01F1A0DF500491E7F /* LaunchScreen.storyboard */,
-				F85120E31F1A0DF500491E7F /* Info.plist */,
+				F85121841F1B4DB900491E7F /* NoteModel */,
+				F851217F1F1B49F900491E7F /* NoteService */,
 				F85120D21F1A0DF500491E7F /* Supporting Files */,
 			);
 			path = ZIKViperDemo;
@@ -300,8 +308,8 @@
 		F85121881F1B9C3A00491E7F /* EditorModule */ = {
 			isa = PBXGroup;
 			children = (
-				F84A010C1F1C916100959026 /* TextWidgetViper */,
 				F85121891F1B9C3A00491E7F /* EditorViper */,
+				F84A010C1F1C916100959026 /* TextWidgetViper */,
 			);
 			path = EditorModule;
 			sourceTree = "<group>";
