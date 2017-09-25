@@ -262,6 +262,7 @@
 		F851215F1F1B431900491E7F /* NoteListViper */ = {
 			isa = PBXGroup;
 			children = (
+				F85C0F061F7826D600F897F9 /* Dependencies */,
 				F8FD8E921F3A173C00D7EECB /* Router */,
 				F8FD8E911F3A172500D7EECB /* View */,
 				F8FD8E931F3A174300D7EECB /* Presenter */,
@@ -317,6 +318,14 @@
 			path = EditorViper;
 			sourceTree = "<group>";
 		};
+		F85C0F061F7826D600F897F9 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				F8A455A41F4182AE00CA7E10 /* NoteEditorProtocol.h */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
 		F8DF8D601F25F95000685AC2 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,7 +368,6 @@
 		F8FD8E931F3A174300D7EECB /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				F8A455A41F4182AE00CA7E10 /* NoteEditorProtocol.h */,
 				F85121661F1B432700491E7F /* ZIKNoteListViewPresenter.h */,
 				F85121671F1B432700491E7F /* ZIKNoteListViewPresenter.m */,
 			);

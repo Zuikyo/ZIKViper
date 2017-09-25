@@ -44,7 +44,7 @@
     if ([self.interactor needValidateAccount] == YES) {
         __weak typeof(self) weakSelf = self;
         UIViewController *source = self.view.routeSource;
-        [ZIKViewRouterForView(_ZIKLoginViewProtocol_)
+        [ZIKViewRouterForView(ZIKLoginViewProtocol_routable)
          performWithConfigure:^(ZIKViewRouteConfiguration * _Nonnull config) {
              config.source = source;
              config.routeType = ZIKViewRouteTypePresentModally;
@@ -73,7 +73,7 @@
 
 - (void)didTouchNavigationBarAddButton {
     NSAssert([[self.view routeSource] isKindOfClass:[UIViewController class]], nil);
-    self.editorRouter = [ZIKViewRouterForConfig(_NoteEditorProtocol_)
+    self.editorRouter = [ZIKViewRouterForConfig(NoteEditorProtocol_configRoutable)
                          performWithConfigure:^(ZIKViewRouteConfiguration<NoteEditorProtocol> * _Nonnull config) {
                              config.source = [self.view routeSource];
                              config.routeType = ZIKViewRouteTypePresentModally;
@@ -114,7 +114,7 @@
 - (void)handleDidSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSAssert([[self.view routeSource] isKindOfClass:[UIViewController class]], nil);
     
-    self.editorRouter = [ZIKViewRouterForConfig(_NoteEditorProtocol_)
+    self.editorRouter = [ZIKViewRouterForConfig(NoteEditorProtocol_configRoutable)
                          performWithConfigure:^(ZIKViewRouteConfiguration<NoteEditorProtocol> * _Nonnull config) {
                              config.source = [self.view routeSource];
                              config.routeType = ZIKViewRouteTypePush;
@@ -147,7 +147,7 @@
     __block UIViewController *destinationViewController;
     NSIndexPath *indexPath = [self.view.noteListTableView indexPathForRowAtPoint:location];
     
-    [ZIKViewRouterForConfig(_NoteEditorProtocol_)
+    [ZIKViewRouterForConfig(NoteEditorProtocol_configRoutable)
      performWithConfigure:^(ZIKViewRouteConfiguration<NoteEditorProtocol> *config) {
         config.routeType = ZIKViewRouteTypeGetDestination;
         config.previewing = YES;
@@ -162,7 +162,7 @@
 }
 
 - (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
-    self.editorRouter = [ZIKViewRouterForConfig(_NoteEditorProtocol_)
+    self.editorRouter = [ZIKViewRouterForConfig(NoteEditorProtocol_configRoutable)
                          performOnDestination:viewControllerToCommit
                          configure:^(__kindof ZIKViewRouteConfiguration * _Nonnull config) {
                              config.source = self.view.routeSource;

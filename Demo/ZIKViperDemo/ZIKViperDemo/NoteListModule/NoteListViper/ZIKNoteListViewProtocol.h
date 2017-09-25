@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 @import ZIKRouter;
 
-#define _ZIKNoteListViewProtocol_ (Protocol<ZIKViewRoutable> *)@protocol(ZIKNoteListViewProtocol)
+#define ZIKNoteListViewProtocol_routable @protocol(ZIKNoteListViewProtocol)
 @protocol ZIKNoteListViewProtocol <ZIKViewRoutable>
 - (UITableView *)noteListTableView;
 @end

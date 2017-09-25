@@ -26,10 +26,10 @@
     UIViewController *noteListViewController = [[initialViewController viewControllers] firstObject];
     
     //Prepare initial view controller
-    [ZIKViewRouterForView(_ZIKNoteListViewProtocol_)
+    [ZIKViewRouterForView(ZIKNoteListViewProtocol_routable)
      prepareDestination:noteListViewController
      configure:^(__kindof ZIKViewRouteConfiguration * _Nonnull config) {
-         config.routeType = ZIKViewRouteTypeGetDestination;
+         
     }];
     
     return YES;

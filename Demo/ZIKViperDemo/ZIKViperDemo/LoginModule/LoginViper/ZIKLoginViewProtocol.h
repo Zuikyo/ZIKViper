@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define _ZIKLoginViewProtocol_ (Protocol<ZIKViewRoutable> *)@protocol(ZIKLoginViewProtocol)
+#define ZIKLoginViewProtocol_routable @protocol(ZIKLoginViewProtocol)
 @protocol ZIKLoginViewProtocol <ZIKViewRoutable>
 @property (nonatomic, weak) id<ZIKLoginViewDelegate> delegate;
 @property (nonatomic, copy, nullable) NSString *message;

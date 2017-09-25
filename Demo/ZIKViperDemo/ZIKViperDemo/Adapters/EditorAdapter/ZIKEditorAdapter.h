@@ -10,6 +10,7 @@
 #import "NoteEditorProtocol.h"
 @import ZIKRouter;
 
+//Adapte reqiured interface (NoteEditorProtocol) with provided interface (ZIKEditorConfigProtocol)
 @interface ZIKEditorAdapter : ZIKViewRouteAdapter
 
 @end
