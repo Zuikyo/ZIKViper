@@ -14,10 +14,10 @@
 #import "ZIKNoteListInteractorInput.h"
 
 #import "ZIKLoginViewProtocol.h"
-#import "ZIKEditorDelegate.h"
+#import "NoteListRequiredNoteEditorDelegate.h"
 #import "NoteListRequiredNoteEditorProtocol.h"
 
-@interface ZIKNoteListViewPresenter () <ZIKViperPresenterPrivate,ZIKEditorDelegate,ZIKLoginViewDelegate>
+@interface ZIKNoteListViewPresenter () <ZIKViperPresenterPrivate,NoteListRequiredNoteEditorDelegate,ZIKLoginViewDelegate>
 @property (nonatomic, strong) ZIKViewRouter *router;
 @property (nonatomic, weak) id<ZIKViperView,ZIKNoteListViewProtocol> view;
 @property (nonatomic, strong) id<ZIKViperInteractor,ZIKNoteListInteractorInput> interactor;
@@ -130,7 +130,7 @@
     [self.interactor didLoginedWithAccount:account];
 }
 
-#pragma mark ZIKEditorDelegate
+#pragma mark NoteListRequiredNoteEditorDelegate
 
 - (void)editor:(UIViewController *)editor didFinishEditNote:(ZIKNoteModel *)note {
     if (self.editorRouter) {

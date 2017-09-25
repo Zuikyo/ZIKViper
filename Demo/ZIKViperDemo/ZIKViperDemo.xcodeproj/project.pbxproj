@@ -52,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		40710C838029B8221A1146E1 /* Pods_ZIKViperDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZIKViperDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F817B01D1F7974130092504E /* NoteListRequiredNoteEditorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListRequiredNoteEditorDelegate.h; sourceTree = "<group>"; };
 		F82CB4F21F3476FA0010A49C /* ZIKNoteListViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKNoteListViewDataSource.h; sourceTree = "<group>"; };
 		F82CB4F31F347C120010A49C /* ZIKEditorViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKEditorViewDataSource.h; sourceTree = "<group>"; };
 		F84A011E1F1C919C00959026 /* ZIKTextWidgetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ZIKTextWidgetInteractor.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -125,7 +126,6 @@
 		F8A455A41F4182AE00CA7E10 /* NoteListRequiredNoteEditorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListRequiredNoteEditorProtocol.h; sourceTree = "<group>"; };
 		F8DF8D651F25F9A000685AC2 /* ZIKEditorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKEditorAdapter.h; sourceTree = "<group>"; };
 		F8DF8D661F25F9A000685AC2 /* ZIKEditorAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIKEditorAdapter.m; sourceTree = "<group>"; };
-		F8DF8D691F26060800685AC2 /* NoteEditorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteEditorDelegate.h; sourceTree = "<group>"; };
 		F8FD8E311F396CC100D7EECB /* libZIKRouter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZIKRouter.a; path = "../../../Library/Developer/Xcode/DerivedData/ZIKViperDemo-cemwuqvkrjnvyzcgzwjazjueulot/Build/Products/Debug-iphonesimulator/ZIKRouter/libZIKRouter.a"; sourceTree = "<group>"; };
 		F8FD8EC41F3AD6D200D7EECB /* ZIKLoginServiceRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKLoginServiceRouter.h; sourceTree = "<group>"; };
 		F8FD8EC51F3AD6D200D7EECB /* ZIKLoginServiceRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIKLoginServiceRouter.m; sourceTree = "<group>"; };
@@ -329,6 +329,7 @@
 		F85C0F061F7826D600F897F9 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				F817B01D1F7974130092504E /* NoteListRequiredNoteEditorDelegate.h */,
 				F8A455A41F4182AE00CA7E10 /* NoteListRequiredNoteEditorProtocol.h */,
 			);
 			name = Dependencies;
@@ -345,7 +346,6 @@
 		F8DF8D641F25F98500685AC2 /* EditorAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				F8DF8D691F26060800685AC2 /* NoteEditorDelegate.h */,
 				F8DF8D651F25F9A000685AC2 /* ZIKEditorAdapter.h */,
 				F8DF8D661F25F9A000685AC2 /* ZIKEditorAdapter.m */,
 			);
