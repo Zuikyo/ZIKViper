@@ -1,5 +1,5 @@
 //
-//  NoteEditorDelegate.h
+//  NoteListRequiredNoteEditorDelegate.h
 //  ZIKViperDemo
 //
 //  Created by zuik on 2017/7/24.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol NoteEditorDelegate <NSObject>
-- (void)editor:(UIViewController *)editor didFinishEditNoteModel:(id)note;
+@class ZIKNoteModel;
+//If you need to replace ZIKEditorDelegate with NoteListRequiredNoteEditorDelegate, and their methods' name is different, you need to forward ZIKEditorDelegate to NoteListRequiredNoteEditorDelegate in ZIKEditorAdapter
+@protocol NoteListRequiredNoteEditorDelegate <NSObject>
+- (void)editor:(UIViewController *)editor didFinishEditNote:(ZIKNoteModel *)note;
 @end

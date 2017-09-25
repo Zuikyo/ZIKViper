@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NoteEditorDelegate.h"
-#import "ZIKEditorDelegate.h"
+#import "NoteListRequiredNoteEditorDelegate.h"
 @import ZIKRouter;
 
 NS_ASSUME_NONNULL_BEGIN
 
 #define NoteListRequiredNoteEditorProtocol_configRoutable @protocol(NoteListRequiredNoteEditorProtocol)
 
+@class ZIKNoteModel;
 ///Reqiured interface of editor module for notelist module
 @protocol NoteListRequiredNoteEditorProtocol <ZIKViewConfigRoutable>
 @property (nonatomic, assign) BOOL previewing;
-@property (nonatomic, weak) id<ZIKEditorDelegate> delegate;
+@property (nonatomic, weak) id<NoteListRequiredNoteEditorDelegate> delegate;
 - (void)constructForCreatingNewNote;
 - (void)constructForEditingNote:(ZIKNoteModel *)note;
 @end

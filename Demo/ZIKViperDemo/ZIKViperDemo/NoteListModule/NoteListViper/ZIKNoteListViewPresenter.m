@@ -75,7 +75,7 @@
 - (void)didTouchNavigationBarAddButton {
     NSAssert([[self.view routeSource] isKindOfClass:[UIViewController class]], nil);
     self.editorRouter = [ZIKViewRouterForConfig(NoteListRequiredNoteEditorProtocol_configRoutable)
-                         performWithConfigure:^(ZIKViewRouteConfiguration<NoteEditorProtocol> * _Nonnull config) {
+                         performWithConfigure:^(ZIKViewRouteConfiguration<NoteListRequiredNoteEditorProtocol> * _Nonnull config) {
                              config.source = [self.view routeSource];
                              config.routeType = ZIKViewRouteTypePresentModally;
                              config.containerWrapper = ^UIViewController<ZIKViewRouteContainer> * _Nonnull(UIViewController * _Nonnull destination) {
@@ -116,7 +116,7 @@
     NSAssert([[self.view routeSource] isKindOfClass:[UIViewController class]], nil);
     
     self.editorRouter = [ZIKViewRouterForConfig(NoteListRequiredNoteEditorProtocol_configRoutable)
-                         performWithConfigure:^(ZIKViewRouteConfiguration<NoteEditorProtocol> * _Nonnull config) {
+                         performWithConfigure:^(ZIKViewRouteConfiguration<NoteListRequiredNoteEditorProtocol> * _Nonnull config) {
                              config.source = [self.view routeSource];
                              config.routeType = ZIKViewRouteTypePush;
                              config.delegate = self;
@@ -149,7 +149,7 @@
     NSIndexPath *indexPath = [self.view.noteListTableView indexPathForRowAtPoint:location];
     
     [ZIKViewRouterForConfig(NoteListRequiredNoteEditorProtocol_configRoutable)
-     performWithConfigure:^(ZIKViewRouteConfiguration<NoteEditorProtocol> *config) {
+     performWithConfigure:^(ZIKViewRouteConfiguration<NoteListRequiredNoteEditorProtocol> *config) {
         config.routeType = ZIKViewRouteTypeGetDestination;
         config.previewing = YES;
         config.delegate = self;
