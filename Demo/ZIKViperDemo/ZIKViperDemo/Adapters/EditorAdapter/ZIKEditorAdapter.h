@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NoteEditorProtocol.h"
+#import "NoteListRequiredNoteEditorProtocol.h"
 @import ZIKRouter;
 
-//Adapte reqiured interface (NoteEditorProtocol) with provided interface (ZIKEditorConfigProtocol)
+//Adapte reqiured interface (NoteListRequiredNoteEditorProtocol) with provided interface (ZIKEditorConfigProtocol)
 @interface ZIKEditorAdapter : ZIKViewRouteAdapter
 
 @end

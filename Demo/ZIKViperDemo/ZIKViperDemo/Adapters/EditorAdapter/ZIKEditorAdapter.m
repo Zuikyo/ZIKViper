@@ -7,11 +7,10 @@
 //
 
 #import "ZIKEditorAdapter.h"
-#import "NoteEditorProtocol.h"
 #import "ZIKEditorViewRouter.h"
 @import ZIKRouter.Internal;
 
-@interface ZIKEditorViewConfiguration (NoteEditorProtocol) <NoteEditorProtocol>
+@interface ZIKEditorViewConfiguration (NoteEditorProtocol) <NoteListRequiredNoteEditorProtocol>
 
 @end
 

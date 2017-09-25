@@ -13,10 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define NoteEditorProtocol_configRoutable @protocol(NoteEditorProtocol)
+#define NoteListRequiredNoteEditorProtocol_configRoutable @protocol(NoteListRequiredNoteEditorProtocol)
 
-///Reqiured Interface of editor module for notelist module
-@protocol NoteEditorProtocol <ZIKViewConfigRoutable>
+///Reqiured interface of editor module for notelist module
+@protocol NoteListRequiredNoteEditorProtocol <ZIKViewConfigRoutable>
 @property (nonatomic, assign) BOOL previewing;
 @property (nonatomic, weak) id<ZIKEditorDelegate> delegate;
 - (void)constructForCreatingNewNote;
