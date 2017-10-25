@@ -11,6 +11,8 @@
 
 #import "ZIKServiceRouter.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface ZIKServiceRouter ()
 @property (nonatomic, readonly, copy) __kindof ZIKServiceRouteConfiguration *_nocopy_configuration;
 
@@ -28,4 +30,7 @@
 - (void)endRemoveRouteWithSuccessOnDestination:(id)destination;
 ///Call it when route remove failed.
 - (void)endRemoveRouteWithError:(NSError *)error;
+
 @end
+
+NS_ASSUME_NONNULL_END
