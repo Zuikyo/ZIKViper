@@ -68,7 +68,7 @@
     if ([self.eventHandler respondsToSelector:@selector(handleViewDidDisappear:)]) {
         [self.eventHandler handleViewDidDisappear:animated];
     }
-    if (self.ZIK_routed == NO) {
+    if (self.zix_routed == NO) {
         if ([self.eventHandler respondsToSelector:@selector(handleViewRemoved)]) {
             [self.eventHandler handleViewRemoved];
         }

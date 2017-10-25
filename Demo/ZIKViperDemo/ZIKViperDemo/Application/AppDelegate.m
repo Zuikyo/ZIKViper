@@ -22,16 +22,6 @@
         NSLog(@"❌ZIKRouter Error: router's action (%@) catch error! code:%@, description: %@, router:(%@)", NSStringFromSelector(routeAction), @(error.code), error.localizedDescription,router);
     }];
     
-    UINavigationController *initialViewController = (UINavigationController *)self.window.rootViewController;
-    UIViewController *noteListViewController = [[initialViewController viewControllers] firstObject];
-    
-    //Prepare initial view controller
-    [ZIKViewRouterForView(ZIKNoteListViewProtocol_routable)
-     prepareDestination:noteListViewController
-     configure:^(__kindof ZIKViewRouteConfiguration * _Nonnull config) {
-         
-    }];
-    
     return YES;
 }
 

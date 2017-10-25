@@ -47,7 +47,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //You can also put your config work here, in case some sub viper module is not prepared yet in -viewDidLoad
-    if (self.ZIK_routed == NO) {
+    if (self.zix_routed == NO) {
 //        NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKEditorViewEventHandler)], nil);
 //        UIBarButtonItem *addNoteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
 //                                                                                     target:self.eventHandler
@@ -82,7 +82,7 @@
     if ([self.eventHandler respondsToSelector:@selector(handleViewDidDisappear:)]) {
         [self.eventHandler handleViewDidDisappear:animated];
     }
-    if (self.ZIK_routed == NO) {
+    if (self.zix_routed == NO) {
         if ([self.eventHandler respondsToSelector:@selector(handleViewRemoved)]) {
             [self.eventHandler handleViewRemoved];
         }

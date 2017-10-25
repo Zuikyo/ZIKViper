@@ -21,7 +21,7 @@
 @implementation ZIKTextView
 
 - (UIViewController *)routeSource {
-    UIViewController *source = [self ZIK_firstAvailableUIViewController];
+    UIViewController *source = [self zix_firstAvailableUIViewController];
     if (source == nil) {
 //        source = [UIApplication sharedApplication].delegate.window.rootViewController;
         NSAssert(NO, @"This UIView is not in any UIViewController. Should use app rootViewController ?");
@@ -46,7 +46,7 @@
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     [super willMoveToWindow:newWindow];
     if (newWindow != nil) {
-        if (self.ZIK_routed == NO) {
+        if (self.zix_routed == NO) {
             NSAssert([self.eventHandler conformsToProtocol:@protocol(ZIKTextWidgetViewEventHandler)], nil);
             if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
                 [self.eventHandler handleViewReady];

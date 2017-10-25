@@ -25,8 +25,8 @@
 @implementation ZIKLoginViewRouter
 
 + (void)registerRoutableDestination {
-    ZIKViewRouter_registerView([ZIKLoginViewController class], self);
-    ZIKViewRouter_registerViewProtocol(@protocol(ZIKLoginViewProtocol), self);
+    [self registerExclusiveView:[ZIKLoginViewController class]];
+    [self registerViewProtocol:@protocol(ZIKLoginViewProtocol)];
 }
 
 - (id)destinationWithConfiguration:(__kindof ZIKRouteConfiguration *)configuration {

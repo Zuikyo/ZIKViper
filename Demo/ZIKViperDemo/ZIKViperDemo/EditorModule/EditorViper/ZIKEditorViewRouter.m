@@ -56,8 +56,8 @@
 @implementation ZIKEditorViewRouter
 
 + (void)registerRoutableDestination {
-    ZIKViewRouter_registerView([ZIKEditorViewController class], self);
-    ZIKViewRouter_registerConfigProtocol(@protocol(ZIKEditorConfigProtocol), self);
+    [self registerExclusiveView:[ZIKEditorViewController class]];
+    [self registerConfigProtocol:@protocol(ZIKEditorConfigProtocol)];
 }
 
 - (UIViewController *)destinationWithConfiguration:(ZIKEditorViewConfiguration *)configuration {
