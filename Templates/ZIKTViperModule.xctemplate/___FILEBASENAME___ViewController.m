@@ -1,25 +1,25 @@
 //
-//  ___FILEBASENAMEASIDENTIFIER___ViewController.m
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //___COPYRIGHT___
 //
 
-#import "___FILEBASENAME___ViewController.h"
+#import "___VARIABLE_productName___ViewController.h"
 #import <ZIKTViper/ZIKTViperViewPrivate.h>
 #import <ZIKTViper/UIViewController+ZIKTViperRouter.h>
 
-#import "___FILEBASENAME___ViewEventHandler.h"
-#import "___FILEBASENAME___ViewDataSource.h"
+#import "___VARIABLE_productName___ViewEventHandler.h"
+#import "___VARIABLE_productName___ViewDataSource.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___ViewController () <ZIKTViperViewPrivate>
-@property (nonatomic, strong) id<___FILEBASENAME___ViewEventHandler> eventHandler;
-@property (nonatomic, strong) id<___FILEBASENAME___ViewDataSource> viewDataSource;
+@interface ___VARIABLE_productName___ViewController () <ZIKTViperViewPrivate>
+@property (nonatomic, strong) id<___VARIABLE_productName___ViewEventHandler> eventHandler;
+@property (nonatomic, strong) id<___VARIABLE_productName___ViewDataSource> viewDataSource;
 @property (nonatomic, assign) BOOL ready;
 @end
 
-@implementation ___FILEBASENAMEASIDENTIFIER___ViewController
+@implementation ___VARIABLE_productName___ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +34,7 @@
     [super viewWillAppear:animated];
     if (self.ready == NO) {
         //Note: in -viewWillAppear:, if this view controller contains sub routable UIView added from external (addSubview:, storyboard or xib), it may not be ready yet. The UIView has to search the UIViewController with -nextResponder to prepare itself, nextResponder can only be gained after -willMoveToWindow:. But -willMoveToWindow: may not be called yet in -viewWillAppear:. If the subview is not ready, config the subview in -handleViewReady may fail. If you can make sure there is no sub routable UIView or the subview is added with router before -viewWillAppear:, you can do -handleViewReady in -viewWillAppear:.
-        NSAssert([self.eventHandler conformsToProtocol:@protocol(___FILEBASENAME___ViewEventHandler)], nil);
+        NSAssert([self.eventHandler conformsToProtocol:@protocol(___VARIABLE_productName___ViewEventHandler)], nil);
         if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
             [self.eventHandler handleViewReady];
         }

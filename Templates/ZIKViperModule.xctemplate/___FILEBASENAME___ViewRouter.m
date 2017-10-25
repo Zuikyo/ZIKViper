@@ -1,59 +1,59 @@
 //
-//  ___FILEBASENAMEASIDENTIFIER___ViewRouter.m
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //___COPYRIGHT___
 //
 
-#import "___FILEBASENAME___ViewRouter.h"
+#import "___VARIABLE_productName___ViewRouter.h"
 #import <ZIKRouter/ZIKRouterInternal.h>
 #import <ZIKRouter/ZIKViewRouterInternal.h>
 #import <ZIKViper/ZIKViper.h>
-#import "___FILEBASENAME___ViewController.h"
-#import "___FILEBASENAME___ViewPresenter.h"
-#import "___FILEBASENAME___Interactor.h"
-//#import "___FILEBASENAME___ViewInput.h"
+#import "___VARIABLE_productName___ViewController.h"
+#import "___VARIABLE_productName___ViewPresenter.h"
+#import "___VARIABLE_productName___Interactor.h"
+//#import "___VARIABLE_productName___ViewInput.h"
 
 /*
-@implementation ___FILEBASENAMEASIDENTIFIER___ViewRouteConfiguration
+@implementation ___VARIABLE_productName___ViewRouteConfiguration
  
  - (id)copyWithZone:(nullable NSZone *)zone {
-     ___FILEBASENAMEASIDENTIFIER___ViewRouteConfiguration *config = [super copyWithZone:zone];
+     ___VARIABLE_productName___ViewRouteConfiguration *config = [super copyWithZone:zone];
  
  }
  
 @end
  */
 
-@interface ___FILEBASENAMEASIDENTIFIER___ViewController (___FILEBASENAMEASIDENTIFIER___ViewRouter) <ZIKRoutableView>
+@interface ___VARIABLE_productName___ViewController (___VARIABLE_productName___ViewRouter) <ZIKRoutableView>
 @end
-@implementation ___FILEBASENAMEASIDENTIFIER___ViewController (___FILEBASENAMEASIDENTIFIER___ViewRouter)
-@end
-
-@interface ___FILEBASENAMEASIDENTIFIER___ViewRouter ()
-
+@implementation ___VARIABLE_productName___ViewController (___VARIABLE_productName___ViewRouter)
 @end
 
-@implementation ___FILEBASENAMEASIDENTIFIER___ViewRouter
+@interface ___VARIABLE_productName___ViewRouter ()
+
+@end
+
+@implementation ___VARIABLE_productName___ViewRouter
 
 + (void)registerRoutableDestination {
-    [self registerExclusiveView:[___FILEBASENAMEASIDENTIFIER___ViewController class]];
-    //[self registerView:[___FILEBASENAMEASIDENTIFIER___ViewController class]];
-    //[self registerViewProtocol:@procotol(___FILEBASENAME___ViewInput)];
-    //[self registerConfigProtocol:@procotol(___FILEBASENAME___ConfigProtocol)];
+    [self registerExclusiveView:[___VARIABLE_productName___ViewController class]];
+    //[self registerView:[___VARIABLE_productName___ViewController class]];
+    //[self registerViewProtocol:@procotol(___VARIABLE_productName___ViewInput)];
+    //[self registerConfigProtocol:@procotol(___VARIABLE_productName___ConfigProtocol)];
 }
 
-- (nullable ___FILEBASENAMEASIDENTIFIER___ViewController *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
+- (nullable ___VARIABLE_productName___ViewController *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
 #error create destination
     //create your view, and initialize it with configuration. return nil if configuration is invalid.
-    ___FILEBASENAMEASIDENTIFIER___ViewController *destination;
+    ___VARIABLE_productName___ViewController *destination;
     
     return destination;
 }
 
-- (void)prepareDestination:(___FILEBASENAMEASIDENTIFIER___ViewController *)destination configuration:(__kindof ZIKViewRouteConfiguration *)configuration {
-    NSParameterAssert([destination isKindOfClass:[___FILEBASENAMEASIDENTIFIER___ViewController class]]);
+- (void)prepareDestination:(___VARIABLE_productName___ViewController *)destination configuration:(__kindof ZIKViewRouteConfiguration *)configuration {
+    NSParameterAssert([destination isKindOfClass:[___VARIABLE_productName___ViewController class]]);
     NSParameterAssert([destination conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
     if (![self isViperAssembled]) {
         [self assembleViper];
@@ -68,8 +68,8 @@
     id<ZIKViperViewPrivate> view = self.destination;
     NSAssert(view, @"Can't assemble viper when view is nil");
     NSAssert([self isViperAssembled] == NO, @"Already assembled");
-    ___FILEBASENAMEASIDENTIFIER___ViewPresenter *presenter = [[___FILEBASENAMEASIDENTIFIER___ViewPresenter alloc] init];
-    ___FILEBASENAMEASIDENTIFIER___Interactor *interactor = [[___FILEBASENAMEASIDENTIFIER___Interactor alloc] init];
+    ___VARIABLE_productName___ViewPresenter *presenter = [[___VARIABLE_productName___ViewPresenter alloc] init];
+    ___VARIABLE_productName___Interactor *interactor = [[___VARIABLE_productName___Interactor alloc] init];
     NSParameterAssert([view conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
     NSParameterAssert([presenter conformsToProtocol:@protocol(ZIKViperPresenterPrivate)]);
     NSParameterAssert([interactor conformsToProtocol:@protocol(ZIKViperInteractorPrivate)]);
@@ -93,7 +93,7 @@
 /*
  // Return your custom configuration
 + (ZIKViewRouteConfiguration *)defaultRouteConfiguration {
-    return [[___FILEBASENAMEASIDENTIFIER___ViewRouteConfiguration alloc] init];
+    return [[___VARIABLE_productName___ViewRouteConfiguration alloc] init];
 }
  */
 

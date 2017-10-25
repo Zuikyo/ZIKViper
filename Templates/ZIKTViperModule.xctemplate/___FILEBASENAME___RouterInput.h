@@ -1,5 +1,5 @@
 //
-//  ___FILEBASENAME___RouterInput.h
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ___FILEBASENAME___RouterInput <NSObject>
+@protocol ___VARIABLE_productName___RouterInput <NSObject>
 
 @end
 

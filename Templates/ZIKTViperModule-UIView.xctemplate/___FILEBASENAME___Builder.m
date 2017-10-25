@@ -1,32 +1,32 @@
 //
-//  ___FILEBASENAME___Builder.m
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //___COPYRIGHT___
 //
 
-#import "___FILEBASENAME___Builder.h"
+#import "___VARIABLE_productName___Builder.h"
 #import <ZIKTViper/ZIKTViperViewPrivate.h>
 #import <ZIKTViper/ZIKTViperPresenterPrivate.h>
 #import <ZIKTViper/ZIKTViperInteractorPrivate.h>
 #import <ZIKTViper/ZIKTViperWireframePrivate.h>
 #import <ZIKTViper/NSObject+ZIKTViperAssembly.h>
 
-#import "___FILEBASENAME___View.h"
-#import "___FILEBASENAME___ViewPresenter.h"
-#import "___FILEBASENAME___Wireframe.h"
-#import "___FILEBASENAME___RouterInput.h"
-#import "___FILEBASENAME___Interactor.h"
-#import "___FILEBASENAME___InteractorEventHandler.h"
-#import "___FILEBASENAME___InteractorDataSource.h"
+#import "___VARIABLE_productName___View.h"
+#import "___VARIABLE_productName___ViewPresenter.h"
+#import "___VARIABLE_productName___Wireframe.h"
+#import "___VARIABLE_productName___RouterInput.h"
+#import "___VARIABLE_productName___Interactor.h"
+#import "___VARIABLE_productName___InteractorEventHandler.h"
+#import "___VARIABLE_productName___InteractorDataSource.h"
 
-@implementation ___FILEBASENAME___BuilderBuilder
+@implementation ___VARIABLE_productName___BuilderBuilder
 
 ///Change this method, add your arguments for initializing the module
-+ (UIView *)viewWithRouteSource:(nullable UIViewController *)routeSource router:(id<___FILEBASENAME___RouterInput>)router {
++ (UIView *)viewWithRouteSource:(nullable UIViewController *)routeSource router:(id<___VARIABLE_productName___RouterInput>)router {
 #error create view
-    ___FILEBASENAMEASIDENTIFIER___View *view =;
+    ___VARIABLE_productName___View *view =;
     
     [self buildView:(id<ZIKTViperViewPrivate>)view
         routeSource:routeSource
@@ -36,11 +36,11 @@
 
 + (void)buildView:(id<ZIKTViperViewPrivate>)view
       routeSource:(nullable UIViewController *)routeSource
-           router:(id<___FILEBASENAME___RouterInput>)router {
-    NSParameterAssert([view isKindOfClass:[___FILEBASENAMEASIDENTIFIER___View class]]);
-    ___FILEBASENAMEASIDENTIFIER___ViewPresenter *presenter = [[___FILEBASENAMEASIDENTIFIER___ViewPresenter alloc] init];
-    ___FILEBASENAMEASIDENTIFIER___Interactor *interactor = [[___FILEBASENAMEASIDENTIFIER___Interactor alloc] init];
-    ___FILEBASENAMEASIDENTIFIER___WireframeWireframe *wireframe = [[___FILEBASENAMEASIDENTIFIER___WireframeWireframe alloc] init];
+           router:(id<___VARIABLE_productName___RouterInput>)router {
+    NSParameterAssert([view isKindOfClass:[___VARIABLE_productName___View class]]);
+    ___VARIABLE_productName___ViewPresenter *presenter = [[___VARIABLE_productName___ViewPresenter alloc] init];
+    ___VARIABLE_productName___Interactor *interactor = [[___VARIABLE_productName___Interactor alloc] init];
+    ___VARIABLE_productName___WireframeWireframe *wireframe = [[___VARIABLE_productName___WireframeWireframe alloc] init];
     
     if ([view respondsToSelector:@selector(setRouteSource:)]) {
         view.routeSource = routeSource;

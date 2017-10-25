@@ -1,5 +1,5 @@
 //
-//  ___FILEBASENAME___ViewInput.h
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//You can use ZIKViewRoutable to make ___FILEBASENAME___ViewInput routable
+//You can use ZIKViewRoutable to make ___VARIABLE_productName___ViewInput routable
 
-@protocol ___FILEBASENAME___ViewInput <NSObject>
+@protocol ___VARIABLE_productName___ViewInput <NSObject>
 
 @end
 

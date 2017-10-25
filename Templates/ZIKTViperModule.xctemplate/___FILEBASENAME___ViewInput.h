@@ -1,5 +1,5 @@
 //
-//  ___FILEBASENAME___ViewInput.h
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ___FILEBASENAME___ViewInput <NSObject>
+@protocol ___VARIABLE_productName___ViewInput <NSObject>
 
 @end
 

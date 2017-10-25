@@ -1,5 +1,5 @@
 //
-//  ___FILEBASENAME___ViewEventHandler.h
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ___FILEBASENAME___ViewEventHandler <ZIKTViperViewEventHandler>
+@protocol ___VARIABLE_productName___ViewEventHandler <ZIKTViperViewEventHandler>
 
 @end
 

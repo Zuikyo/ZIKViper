@@ -1,5 +1,5 @@
 //
-//  ___FILEBASENAMEASIDENTIFIER___ViewRouter.h
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -10,21 +10,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//define ____FILEBASENAME___ViewInput_ in ___FILEBASENAME___ViewInput.h file, and use it like ZIKViewRouterForView(____FILEBASENAME___ViewInput_). If is not registered as routable protocol anymore, remember to remove macro ____FILEBASENAME___ViewInput_
-//#define ____FILEBASENAME___ViewInput_ (Protocol<ZIKViewRoutable> *)@protocol(___FILEBASENAME___ViewInput)
+//define ____VARIABLE_productName___ViewInput_ in ___VARIABLE_productName___ViewInput.h file, and use it like ZIKViewRouterForView(____VARIABLE_productName___ViewInput_). If is not registered as routable protocol anymore, remember to remove macro ____VARIABLE_productName___ViewInput_
+//#define ____VARIABLE_productName___ViewInput_ (Protocol<ZIKViewRoutable> *)@protocol(___VARIABLE_productName___ViewInput)
 
 /*
- //define ____FILEBASENAME___ConfigProtocol_ in ___FILEBASENAME___ConfigProtocol.h file, and use it like ZIKViewRouterForConfig(____FILEBASENAME___ConfigProtocol_). If is not registered as routable protocol anymore, remember to remove macro ____FILEBASENAME___ConfigProtocol_
- //#define ____FILEBASENAME___ConfigProtocol_ (Protocol<ZIKViewConfigRoutable> *)@protocol(___FILEBASENAME___ConfigProtocol)
+ //define ____VARIABLE_productName___ConfigProtocol_ in ___VARIABLE_productName___ConfigProtocol.h file, and use it like ZIKViewRouterForConfig(____VARIABLE_productName___ConfigProtocol_). If is not registered as routable protocol anymore, remember to remove macro ____VARIABLE_productName___ConfigProtocol_
+ //#define ____VARIABLE_productName___ConfigProtocol_ (Protocol<ZIKViewConfigRoutable> *)@protocol(___VARIABLE_productName___ConfigProtocol)
  
- //Create ___FILEBASENAME___ConfigProtocol.h file for your configuration
+ //Create ___VARIABLE_productName___ConfigProtocol.h file for your configuration
  // if this viewController need custom arguments to initialize, use a custom view configuration to require those arguments
-@interface ___FILEBASENAMEASIDENTIFIER___ViewRouteConfiguration : ZIKViewRouteConfiguration <NSCopying,___FILEBASENAME___ConfigProtocol>
+@interface ___VARIABLE_productName___ViewRouteConfiguration : ZIKViewRouteConfiguration <NSCopying,___VARIABLE_productName___ConfigProtocol>
 @property (nonatomic, strong) id argument;
 @end
 */
 
-@interface ___FILEBASENAMEASIDENTIFIER___ViewRouter : ZIKViewRouter <ZIKViewRouterProtocol>
+@interface ___VARIABLE_productName___ViewRouter : ZIKViewRouter <ZIKViewRouterProtocol>
 
 @end
 

@@ -1,30 +1,30 @@
 //
-//  ___FILEBASENAME___View.m
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //___COPYRIGHT___
 //
 
-#import "___FILEBASENAME___View.h"
+#import "___VARIABLE_productName___View.h"
 #import <ZIKTViper/ZIKTViperViewPrivate.h>
-#import "___FILEBASENAME___ViewEventHandler.h"
-#import "___FILEBASENAME___ViewDataSource.h"
+#import "___VARIABLE_productName___ViewEventHandler.h"
+#import "___VARIABLE_productName___ViewDataSource.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___View () <ZIKTViperViewPrivate>
-@property (nonatomic, strong) id<___FILEBASENAME___ViewEventHandler> eventHandler;
-@property (nonatomic, strong) id<___FILEBASENAME___ViewDataSource> viewDataSource;
+@interface ___VARIABLE_productName___View () <ZIKTViperViewPrivate>
+@property (nonatomic, strong) id<___VARIABLE_productName___ViewEventHandler> eventHandler;
+@property (nonatomic, strong) id<___VARIABLE_productName___ViewDataSource> viewDataSource;
 @property (nonatomic, weak, nullable) UIViewController *routeSource;
 @property (nonatomic, assign) BOOL ready;
 @end
 
-@implementation ___FILEBASENAMEASIDENTIFIER___View
+@implementation ___VARIABLE_productName___View
 
 - (void)sendViewReadyEventIfNeed {
     if (self.ready == NO &&
         self.eventHandler != nil) {
         self.ready = YES;
-        NSAssert([self.eventHandler conformsToProtocol:@protocol(___FILEBASENAME___ViewEventHandler)], nil);
+        NSAssert([self.eventHandler conformsToProtocol:@protocol(___VARIABLE_productName___ViewEventHandler)], nil);
         if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
             [self.eventHandler handleViewReady];
         }

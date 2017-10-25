@@ -1,37 +1,37 @@
 //
-//  ___FILEBASENAMEASIDENTIFIER___ViewPresenter.m
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //___COPYRIGHT___
 //
 
-#import "___FILEBASENAME___ViewPresenter.h"
+#import "___VARIABLE_productName___ViewPresenter.h"
 #import <ZIKTViper/ZIKTViperView.h>
 #import <ZIKTViper/ZIKTViperWireframe.h>
 #import <ZIKTViper/ZIKTViperInteractor.h>
 #import <ZIKTViper/ZIKTViperPresenterPrivate.h>
 
-#import "___FILEBASENAME___ViewInput.h"
-#import "___FILEBASENAME___WireframeInput.h"
-#import "___FILEBASENAME___InteractorInput.h"
-#import "___FILEBASENAME___InteractorDataSource.h"
-#import "___FILEBASENAME___InteractorEventHandler.h"
+#import "___VARIABLE_productName___ViewInput.h"
+#import "___VARIABLE_productName___WireframeInput.h"
+#import "___VARIABLE_productName___InteractorInput.h"
+#import "___VARIABLE_productName___InteractorDataSource.h"
+#import "___VARIABLE_productName___InteractorEventHandler.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___ViewPresenter () <ZIKTViperPresenterPrivate,___FILEBASENAME___InteractorDataSource,___FILEBASENAME___InteractorEventHandler>
-@property (nonatomic, strong) id<ZIKTViperWireframe,___FILEBASENAME___WireframeInput> wireframe;
-@property (nonatomic, weak) id<ZIKTViperView,___FILEBASENAME___ViewInput> view;
-@property (nonatomic, strong) id<ZIKTViperInteractor,___FILEBASENAME___InteractorInput> interactor;
+@interface ___VARIABLE_productName___ViewPresenter () <ZIKTViperPresenterPrivate,___VARIABLE_productName___InteractorDataSource,___VARIABLE_productName___InteractorEventHandler>
+@property (nonatomic, strong) id<ZIKTViperWireframe,___VARIABLE_productName___WireframeInput> wireframe;
+@property (nonatomic, weak) id<ZIKTViperView,___VARIABLE_productName___ViewInput> view;
+@property (nonatomic, strong) id<ZIKTViperInteractor,___VARIABLE_productName___InteractorInput> interactor;
 @end
 
-@implementation ___FILEBASENAMEASIDENTIFIER___ViewPresenter
+@implementation ___VARIABLE_productName___ViewPresenter
 
 #pragma mark ZIKTViperViewEventHandler
 
 - (void)handleViewReady {
     NSAssert(self.wireframe.view == self.view, @"Wireframe should be initlized when view is ready.");
-    NSAssert([self.view conformsToProtocol:@protocol(___FILEBASENAME___ViewInput)], @"Presenter should be attach to a view.");
-    NSAssert([self.interactor conformsToProtocol:@protocol(___FILEBASENAME___InteractorInput)], @"Interactor should be initlized when view is ready.");
+    NSAssert([self.view conformsToProtocol:@protocol(___VARIABLE_productName___ViewInput)], @"Presenter should be attach to a view.");
+    NSAssert([self.interactor conformsToProtocol:@protocol(___VARIABLE_productName___InteractorInput)], @"Interactor should be initlized when view is ready.");
     
 }
 
@@ -55,8 +55,8 @@
     
 }
 
-#pragma mark ___FILEBASENAME___InteractorDataSource
+#pragma mark ___VARIABLE_productName___InteractorDataSource
 
-#pragma mark ___FILEBASENAME___InteractorEventHandler
+#pragma mark ___VARIABLE_productName___InteractorEventHandler
 
 @end

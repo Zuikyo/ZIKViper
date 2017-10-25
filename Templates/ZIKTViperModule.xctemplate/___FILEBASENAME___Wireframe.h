@@ -1,5 +1,5 @@
 //
-//  ___FILEBASENAME___Wireframe.h
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <ZIKTViper/ZIKTViperWireframe.h>
-#import "___FILEBASENAME___WireframeInput.h"
+#import "___VARIABLE_productName___WireframeInput.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ___FILEBASENAMEASIDENTIFIER___WireframeWireframe : NSObject <ZIKTViperWireframe, ___FILEBASENAME___WireframeInput>
+@interface ___VARIABLE_productName___WireframeWireframe : NSObject <ZIKTViperWireframe, ___VARIABLE_productName___WireframeInput>
 
 @end
 

@@ -1,5 +1,5 @@
 //
-//  ___FILEBASENAMEASIDENTIFIER___Interactor.h
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -7,13 +7,13 @@
 //
 #import <Foundation/Foundation.h>
 #import <ZIKTViper/ZIKTViperInteractor.h>
-#import "___FILEBASENAME___InteractorInput.h"
+#import "___VARIABLE_productName___InteractorInput.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ___FILEBASENAME___InteractorDataSource;
-@protocol ___FILEBASENAME___InteractorEventHandler;
-@interface ___FILEBASENAMEASIDENTIFIER___Interactor : NSObject <ZIKTViperInteractor, ___FILEBASENAME___InteractorInput>
+@protocol ___VARIABLE_productName___InteractorDataSource;
+@protocol ___VARIABLE_productName___InteractorEventHandler;
+@interface ___VARIABLE_productName___Interactor : NSObject <ZIKTViperInteractor, ___VARIABLE_productName___InteractorInput>
 
 @end
 
