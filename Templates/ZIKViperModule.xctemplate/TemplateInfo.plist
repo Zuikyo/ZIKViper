@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>此模板用于快速创建一个VIPER模块</string>
+	<string>Generate a new VIPER module consisting of the view, interactor, presenter and router file.</string>
 	<key>Kind</key>
 	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
 	<key>Identifier</key>
@@ -32,6 +32,39 @@
 			<key>NotPersisted</key>
 			<true/>
 		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>viewType</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>View Type:</string>
+			<key>Description</key>
+			<string>The type of view to use</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Default</key>
+			<string>UIViewController</string>
+			<key>Values</key>
+			<array>
+				<string>UIViewController</string>
+				<string>UIView</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>separate</string>
+			<key>Name</key>
+			<string>Separate with folders</string>
+			<key>Description</key>
+			<string>Separate View, Interactor, Presenter, Router with folders</string>
+			<key>Type</key>
+			<string>checkbox</string>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
 	</array>
 </dict>
 </plist>
