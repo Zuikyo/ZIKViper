@@ -22,7 +22,7 @@
 @implementation ___FILEBASENAMEASIDENTIFIER___View
 
 - (nullable UIViewController *)routeSource {
-    UIViewController *source = [self ZIK_firstAvailableUIViewController];
+    UIViewController *source = [self zix_firstAvailableUIViewController];
     if (source == nil) {
 //        source = [UIApplication sharedApplication].delegate.window.rootViewController;
         NSAssert(NO, @"This UIView is not in any UIViewController. Should use app rootViewController ?");
@@ -37,7 +37,7 @@
 
 - (void)sendViewReadyEventIfNeed {
     if (self.ready == NO &&
-        self.ZIK_routed == NO &&
+        self.zix_routed == NO &&
         self.eventHandler != nil) {
         self.ready = YES;
         NSAssert([self.eventHandler conformsToProtocol:@protocol(___FILEBASENAME___ViewEventHandler)], nil);

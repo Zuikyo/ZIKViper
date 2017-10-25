@@ -38,10 +38,10 @@
 @implementation ___FILEBASENAMEASIDENTIFIER___ViewRouter
 
 + (void)registerRoutableDestination {
-    ZIKViewRouter_registerViewForExclusiveRouter([___FILEBASENAMEASIDENTIFIER___ViewController class], self);
-    //ZIKViewRouter_registerView([___FILEBASENAMEASIDENTIFIER___ViewController class], self);
-    //ZIKViewRouter_registerViewProtocol(@procotol(___FILEBASENAME___ViewInput),self);
-    //ZIKViewRouter_registerConfigProtocol(@procotol(___FILEBASENAME___ConfigProtocol),self);
+    [self registerExclusiveView:[___FILEBASENAMEASIDENTIFIER___ViewController class]];
+    //[self registerView:[___FILEBASENAMEASIDENTIFIER___ViewController class]];
+    //[self registerViewProtocol:@procotol(___FILEBASENAME___ViewInput)];
+    //[self registerConfigProtocol:@procotol(___FILEBASENAME___ConfigProtocol)];
 }
 
 - (nullable ___FILEBASENAMEASIDENTIFIER___ViewController *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {

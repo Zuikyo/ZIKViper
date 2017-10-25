@@ -31,7 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.ZIK_routed == NO) {
+    if (self.zix_routed == NO) {
         //Note: in -viewWillAppear:, if this view controller contains sub routable UIView added from external (addSubview:, storyboard or xib), it may not be ready yet. The UIView has to search the UIViewController with -nextResponder to prepare itself, nextResponder can only be gained after -willMoveToWindow:. But -willMoveToWindow: may not be called yet in -viewWillAppear:. If the subview is not ready, config the subview in -handleViewReady may fail. If you can make sure there is no sub routable UIView or the subview is added with router before -viewWillAppear:, you can do -handleViewReady in -viewWillAppear:.
         NSAssert([self.eventHandler conformsToProtocol:@protocol(___FILEBASENAME___ViewEventHandler)], nil);
         if ([self.eventHandler respondsToSelector:@selector(handleViewReady)]) {
@@ -62,7 +62,7 @@
     if ([self.eventHandler respondsToSelector:@selector(handleViewDidDisappear:)]) {
         [self.eventHandler handleViewDidDisappear:animated];
     }
-    if (self.ZIK_routed == NO) {
+    if (self.zix_routed == NO) {
         if ([self.eventHandler respondsToSelector:@selector(handleViewRemoved)]) {
             [self.eventHandler handleViewRemoved];
         }
