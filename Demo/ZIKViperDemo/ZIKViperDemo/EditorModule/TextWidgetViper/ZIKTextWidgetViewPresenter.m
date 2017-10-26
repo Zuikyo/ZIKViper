@@ -57,7 +57,7 @@
                  destination.delegate = weakSelf;
                  destination.message = @"Login in to edit this note";
              };
-             config.providerErrorHandler = ^(SEL  _Nonnull routeAction, NSError * _Nonnull error) {
+             config.errorHandler = ^(SEL  _Nonnull routeAction, NSError * _Nonnull error) {
                  
              };
         }];

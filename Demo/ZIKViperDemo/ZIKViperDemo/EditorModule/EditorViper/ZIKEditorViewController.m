@@ -118,7 +118,7 @@
 #pragma mark Route
 
  ///Prepare sub modules
-- (void)prepareForDestinationRoutingFromExternal:(id)destination configuration:(__kindof ZIKViewRouteConfiguration *)configuration {
+- (void)prepareDestinationFromExternal:(id)destination configuration:(__kindof ZIKViewRouteConfiguration *)configuration {
     if ([destination conformsToProtocol:@protocol(ZIKTextWidgetViewProtocol)]) {
         //Prepare
         id<ZIKTextWidgetViewProtocol> textView = destination;
