@@ -45,7 +45,7 @@
         __weak typeof(self) weakSelf = self;
         UIViewController *source = self.view.routeSource;
         //You can create a required protocol for ZIKLoginViewProtocol inside NoteListModule, but it's not that necessary until you need to use another LoginModule
-        [ZIKViewRouterForView(ZIKLoginViewProtocol_routable)
+        [ZIKViewRouter.forView(ZIKLoginViewProtocol_routable)
          performWithConfigure:^(ZIKViewRouteConfiguration * _Nonnull config) {
              config.source = source;
              config.routeType = ZIKViewRouteTypePresentModally;
@@ -74,7 +74,7 @@
 
 - (void)didTouchNavigationBarAddButton {
     NSAssert([[self.view routeSource] isKindOfClass:[UIViewController class]], nil);
-    self.editorRouter = [ZIKViewRouterForConfig(NoteListRequiredNoteEditorProtocol_configRoutable)
+    self.editorRouter = [ZIKViewRouter.forModule(NoteListRequiredNoteEditorProtocol_configRoutable)
                          performWithConfigure:^(ZIKViewRouteConfiguration<NoteListRequiredNoteEditorProtocol> * _Nonnull config) {
                              config.source = [self.view routeSource];
                              config.routeType = ZIKViewRouteTypePresentModally;
@@ -115,7 +115,7 @@
 - (void)handleDidSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSAssert([[self.view routeSource] isKindOfClass:[UIViewController class]], nil);
     
-    self.editorRouter = [ZIKViewRouterForConfig(NoteListRequiredNoteEditorProtocol_configRoutable)
+    self.editorRouter = [ZIKViewRouter.forModule(NoteListRequiredNoteEditorProtocol_configRoutable)
                          performWithConfigure:^(ZIKViewRouteConfiguration<NoteListRequiredNoteEditorProtocol> * _Nonnull config) {
                              config.source = [self.view routeSource];
                              config.routeType = ZIKViewRouteTypePush;
@@ -148,7 +148,7 @@
     __block UIViewController *destinationViewController;
     NSIndexPath *indexPath = [self.view.noteListTableView indexPathForRowAtPoint:location];
     
-    [ZIKViewRouterForConfig(NoteListRequiredNoteEditorProtocol_configRoutable)
+    [ZIKViewRouter.forModule(NoteListRequiredNoteEditorProtocol_configRoutable)
      performWithConfigure:^(ZIKViewRouteConfiguration<NoteListRequiredNoteEditorProtocol> *config) {
         config.routeType = ZIKViewRouteTypeGetDestination;
         config.previewing = YES;
@@ -163,7 +163,7 @@
 }
 
 - (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
-    self.editorRouter = [ZIKViewRouterForConfig(NoteListRequiredNoteEditorProtocol_configRoutable)
+    self.editorRouter = [ZIKViewRouter.forModule(NoteListRequiredNoteEditorProtocol_configRoutable)
                          performOnDestination:viewControllerToCommit
                          configure:^(__kindof ZIKViewRouteConfiguration * _Nonnull config) {
                              config.source = self.view.routeSource;
