@@ -57,7 +57,7 @@
 
 + (void)registerRoutableDestination {
     [self registerExclusiveView:[ZIKEditorViewController class]];
-    [self registerConfigProtocol:@protocol(ZIKEditorConfigProtocol)];
+    [self registerModuleProtocol:@protocol(ZIKEditorConfigProtocol)];
 }
 
 - (UIViewController *)destinationWithConfiguration:(ZIKEditorViewConfiguration *)configuration {
@@ -99,7 +99,7 @@
 #pragma mark Viper assembly
 
 - (void)assembleViper {
-    ZIKEditorViewConfiguration *config = self._nocopy_configuration;
+    ZIKEditorViewConfiguration *config = self.original_configuration;
     id<ZIKViperViewPrivate> view = self.destination;
     NSAssert(view, @"Can't assemble viper when view is nil");
     ZIKEditorViewPresenter *presenter = [[ZIKEditorViewPresenter alloc] init];

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define ZIKEditorConfigProtocol_configRoutable @protocol(ZIKEditorConfigProtocol)
 
 @class ZIKNoteModel;
-@protocol ZIKEditorConfigProtocol <ZIKViewConfigRoutable>
+@protocol ZIKEditorConfigProtocol <ZIKViewModuleRoutable>
 @property (nonatomic, assign) BOOL previewing;
 @property (nonatomic, weak) id<ZIKEditorDelegate> delegate;
 - (void)constructForCreatingNewNote;

@@ -41,7 +41,7 @@
     [self registerExclusiveView:[___VARIABLE_productName___View class]];
     //[self registerView:[___VARIABLE_productName___View class]];
     //[self registerViewProtocol:@procotol(___VARIABLE_productName___ViewInput)];
-    //[self registerConfigProtocol:@procotol(___VARIABLE_productName___ConfigInput)];
+    //[self registerModuleProtocol:@procotol(___VARIABLE_productName___ConfigInput)];
 }
 
 - (nullable ___VARIABLE_productName___View *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
