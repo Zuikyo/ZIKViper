@@ -19,10 +19,10 @@
 
 - (id<ZIKLoginServiceInput>)loginService {
     if (!_loginService) {
-        NSAssert([ZIKServiceRouter.forService(_ZIKLoginServiceInput_) completeSynchronously] == YES, @"Can get service synchronously.");
+        NSAssert([ZIKServiceRouter.toService(_ZIKLoginServiceInput_) completeSynchronously] == YES, @"Can get service synchronously.");
         __block id<ZIKLoginServiceInput> loginService;
-        [ZIKServiceRouter.forService(_ZIKLoginServiceInput_)
-         performWithConfigure:^(__kindof ZIKServiceRouteConfiguration * _Nonnull config) {
+        [ZIKServiceRouter.toService(_ZIKLoginServiceInput_)
+         performWithConfiguring:^(__kindof ZIKServiceRouteConfiguration * _Nonnull config) {
             config.prepareForRoute = ^(id  _Nonnull destination) {
                 
             };
