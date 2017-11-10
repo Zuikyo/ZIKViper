@@ -23,7 +23,7 @@
         __block id<ZIKLoginServiceInput> loginService;
         [ZIKServiceRouter.toService(_ZIKLoginServiceInput_)
          performWithConfiguring:^(__kindof ZIKServiceRouteConfiguration * _Nonnull config) {
-            config.prepareForRoute = ^(id  _Nonnull destination) {
+            config.prepareDestination = ^(id  _Nonnull destination) {
                 
             };
             config.routeCompletion = ^(id  _Nonnull destination) {

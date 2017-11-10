@@ -53,7 +53,7 @@
          performWithConfiguring:^(ZIKViewRouteConfiguration * _Nonnull config) {
              config.source = source;
              config.routeType = ZIKViewRouteTypePresentModally;
-             config.prepareForRoute = ^(id<ZIKLoginViewProtocol> _Nonnull destination) {
+             config.prepareDestination = ^(id<ZIKLoginViewProtocol> _Nonnull destination) {
                  destination.delegate = weakSelf;
                  destination.message = @"Login in to edit this note";
              };
