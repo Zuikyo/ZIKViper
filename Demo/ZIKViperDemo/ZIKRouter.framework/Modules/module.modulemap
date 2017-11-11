@@ -1,0 +1,16 @@
+framework module ZIKRouter {
+  umbrella header "ZIKRouter-umbrella.h"
+  
+  export *
+  module * { export * }
+  
+  explicit module Internal {
+      header "ZIKRouterInternal.h"
+      header "ZIKViewRouterInternal.h"
+      header "ZIKServiceRouterInternal.h"
+  }
+  explicit module Private {
+      header "ZIKViewRouterPrivate.h"
+      header "ZIKServiceRouterPrivate.h"
+  }
+}
