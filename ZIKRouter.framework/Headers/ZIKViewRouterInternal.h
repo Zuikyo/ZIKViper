@@ -13,21 +13,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-///Use these methods when implementing your custom route
+///Internal methods for subclass. Use these methods when implementing your custom route.
 @interface ZIKViewRouter ()
-@property (nonatomic, readonly, copy) __kindof ZIKViewRouteConfiguration *_nocopy_configuration;
-@property (nonatomic, readonly, copy) __kindof ZIKViewRemoveConfiguration *_nocopy_removeConfiguration;
+@property (nonatomic, readonly, copy) __kindof ZIKViewRouteConfiguration *original_configuration;
+@property (nonatomic, readonly, copy) __kindof ZIKViewRemoveConfiguration *original_removeConfiguration;
 
-///Maintain the route state for custom route
+///Maintain the route state for custom route.
 ///Call it when route will perform.
 - (void)beginPerformRoute;
 ///Call it when route is successfully performed.
 - (void)endPerformRouteWithSuccess;
-///Call it when route performancer failed.
+///Call it when route perform failed.
 - (void)endPerformRouteWithError:(NSError *)error;
 
 ///If your custom route type is performing a segue, use this to perform the segue, don't need to use -beginPerformRoute and -endPerformRouteWithSuccess. `Source` is the view controller to perform the segue.
-- (void)_o_performSegueWithIdentifier:(NSString *)identifier fromSource:(UIViewController *)source sender:(nullable id)sender;
+- (void)_performSegueWithIdentifier:(NSString *)identifier fromSource:(UIViewController *)source sender:(nullable id)sender;
 
 ///Call it when route will remove.
 - (void)beginRemoveRouteFromSource:(id)source;

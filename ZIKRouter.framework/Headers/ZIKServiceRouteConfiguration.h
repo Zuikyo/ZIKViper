@@ -5,6 +5,9 @@
 //  Created by zuik on 2017/10/13.
 //  Copyright © 2017 zuik. All rights reserved.
 //
+//  This source code is licensed under the MIT-style license found in the
+//  LICENSE file in the root directory of this source tree.
+//
 
 #import "ZIKRouteConfiguration.h"
 
@@ -17,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
  Prepare for performRoute, and config other dependency for destination here. Subclass can offer more specific info.
  
  @note
- Use weakSelf in prepareForRoute to avoid retain cycle.
+ Use weakSelf in prepareDestination to avoid retain cycle.
  */
-@property (nonatomic, copy, nullable) void(^prepareForRoute)(id destination);
+@property (nonatomic, copy, nullable) void(^prepareDestination)(id destination);
 
 /**
  Completion for performRoute. Default implemenation will call routeCompletion synchronously.

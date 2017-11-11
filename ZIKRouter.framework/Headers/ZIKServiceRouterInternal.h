@@ -13,15 +13,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+///Internal methods for subclass.
 @interface ZIKServiceRouter ()
-@property (nonatomic, readonly, copy) __kindof ZIKServiceRouteConfiguration *_nocopy_configuration;
+@property (nonatomic, readonly, copy) __kindof ZIKServiceRouteConfiguration *original_configuration;
 
 ///Maintain the route state when you implement custom route or remove route
 ///Call it when route will perform.
 - (void)beginPerformRoute;
 ///Call it when route is successfully performed.
 - (void)endPerformRouteWithSuccess;
-///Call it when route performancer failed.
+///Call it when route perform failed.
 - (void)endPerformRouteWithError:(NSError *)error;
 
 ///Call it when route will remove.
