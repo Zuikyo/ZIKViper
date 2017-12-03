@@ -22,7 +22,7 @@
         NSAssert([ZIKServiceRouter.toService(_ZIKLoginServiceInput_) completeSynchronously] == YES, @"Can get service synchronously.");
         __block id<ZIKLoginServiceInput> loginService;
         [ZIKServiceRouter.toService(_ZIKLoginServiceInput_)
-         performWithConfiguring:^(__kindof ZIKServiceRouteConfiguration * _Nonnull config) {
+         performWithConfiguring:^(ZIKPerformRouteConfiguration * _Nonnull config) {
             config.prepareDestination = ^(id  _Nonnull destination) {
                 
             };

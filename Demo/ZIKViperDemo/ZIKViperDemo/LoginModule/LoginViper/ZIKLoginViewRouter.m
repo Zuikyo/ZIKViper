@@ -29,7 +29,7 @@
     [self registerViewProtocol:@protocol(ZIKLoginViewProtocol)];
 }
 
-- (id)destinationWithConfiguration:(__kindof ZIKRouteConfiguration *)configuration {
+- (id)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ZIKLoginViewController *destination = [sb instantiateViewControllerWithIdentifier:@"ZIKLoginViewController"];
     return destination;

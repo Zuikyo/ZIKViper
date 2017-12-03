@@ -1,5 +1,5 @@
 //
-//  ZIKRouterRuntimeHelper.h
+//  ZIKRouterRuntime.h
 //  ZIKRouter
 //
 //  Created by zuik on 2017/9/20.
@@ -64,27 +64,11 @@ extern bool ZIKRouter_classIsSubclassOfClass(Class aClass, Class parentClass);
 ///Check whether a class is from Apple's system framework, or from your project.
 extern bool ZIKRouter_classIsCustomClass(Class aClass);
 
+///Check whether a class self implementing a method.
+extern bool ZIKRouter_classSelfImplementingMethod(Class aClass, SEL method, bool isClassMethod);
+
 ///Check whether an object is an objc protocol.
 extern bool ZIKRouter_isObjcProtocol(id protocol);
-
-/**
- Check whether a swift type conforms to a protocol, working like class_conformsToProtocol() in objective-C.
- @warning
- This function is for debugging assertion and it always return true in release mode. It uses private APIs in Swift bridging class, and these code won't be included in release mode. It need to search a private function pointer in libswiftCore.dylib at first call, and it may take some times:
- `bool _conformsToProtocols(const OpaqueValue *value, const Metadata *type, const ExistentialTypeMetadata *existentialType, const WitnessTable **conformances)`. See `https://github.com/apple/swift/blob/master/stdlib/public/runtime/Casting.cpp`.
- 
- This private function may change in later version of swift, so this function may not work then.
- 
- @note
- It costs about 0.8 second to get function pointer of `_conformsToProtocols` by fuzzySearchFunctionPointerBySymbol() and store the pointer. It seems like the address is always the same in a same build configuration of swift version and cpu arch. If you think the searching costs too many times, you can set the address as environment variable `SWIFT_CONFORMSTOPROTOCOLS_ADDRESS`, then we don't have to search agian in next running. You can also use `nm -a libswiftCore.dylib` to dump symbols.
- 
- If you need to support fat binary, set SWIFT_CONFORMSTOPROTOCOLS_ADDRESS_ARMV7 and SWIFT_CONFORMSTOPROTOCOLS_ADDRESS_ARMV7S. `nm -a libswiftCore.dylib` will dump symbols for armv7 and armv7s, like: `0038f644 t __ZL20_conformsToProtocolsPKN5swift11OpaqueValueEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_29TargetExistentialTypeMetadataIS4_EEPPKNS_12WitnessTableE`. you need to add 0x1 for the symbol's address for armv7 and armv7s, so the final value to set is 0038f645). If the address you set is invalid, there will be an assert failure.
- 
- @param swiftType Any type of swift class, objc class, swift struct, swift enum, objc protocol. But can't be swift protocol.
- @param swiftProtocol The protocol to check, can be swift protocol or objc protocol.
- @return True if the type conforms to the protocol.
- */
-extern bool _swift_typeConformsToProtocol(id swiftType, id swiftProtocol);
 
 /**
  Search function pointer in loaded library file which it's symbol contains the fuzzyFunctionSymbol. You can get static function's function pointer which not supported by dlsym().

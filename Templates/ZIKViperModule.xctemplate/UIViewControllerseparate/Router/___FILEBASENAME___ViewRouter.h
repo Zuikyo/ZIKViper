@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 */
 
-@interface ___VARIABLE_productName___ViewRouter : ZIKViewRouter <ZIKViewRouterProtocol>
+@interface ___VARIABLE_productName___ViewRouter : ZIKViewRouter
 
 @end
 

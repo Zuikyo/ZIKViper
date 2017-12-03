@@ -21,7 +21,7 @@
     [self registerServiceProtocol:@protocol(ZIKLoginServiceInput)];
 }
 
-- (id)destinationWithConfiguration:(__kindof ZIKRouteConfiguration *)configuration {
+- (id)destinationWithConfiguration:(ZIKPerformRouteConfiguration *)configuration {
     ZIKLoginService *destination = [ZIKLoginService sharedInstance];
     return destination;
 }

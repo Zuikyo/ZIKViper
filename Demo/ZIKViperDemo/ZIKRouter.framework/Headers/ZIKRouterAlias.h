@@ -13,10 +13,18 @@
 #import "ZIKServiceRouter.h"
 
 typedef ZIKRouteConfiguration ZIKRouteConfig;
+typedef ZIKPerformRouteConfiguration ZIKPerformRouteConfig;
+typedef ZIKRemoveRouteConfiguration ZIKRemoveRouteConfig;
 
 typedef ZIKViewRouteConfiguration ZIKViewRouteConfig;
 typedef ZIKViewRemoveConfiguration ZIKViewRemoveConfig;
-typedef ZIKViewRouter<ZIKViewRouteConfig *, ZIKViewRemoveConfig *> ZIKDefaultViewRouter;
+typedef ZIKViewRouteSegueConfiguration ZIKViewRouteSegueConfig;
+typedef ZIKViewRoutePopoverConfiguration ZIKViewRoutePopoverConfig;
 
-typedef ZIKServiceRouteConfiguration ZIKServiceRouteConfig;
-typedef ZIKServiceRouter<ZIKServiceRouteConfig *, ZIKRouteConfig *> ZIKDefaultServiceRouter;
+typedef ZIKViewRouter<id<ZIKRoutableView>, ZIKViewRouteConfig *, ZIKViewRemoveConfig *> ZIKAnyViewRouter;
+#define ZIKDestinationViewRouter(Destination) ZIKViewRouter<Destination, ZIKViewRouteConfig *, ZIKViewRemoveConfig *>
+#define ZIKModuleViewRouter(ModuleConfigProtocol) ZIKViewRouter<id<ZIKRoutableView>, ZIKViewRouteConfig<ModuleConfigProtocol> *, ZIKViewRemoveConfig *>
+
+typedef ZIKServiceRouter<id, ZIKPerformRouteConfig *, ZIKRemoveRouteConfig *> ZIKAnyServiceRouter;
+#define ZIKDestinationServiceRouter(Destination) ZIKServiceRouter<Destination, ZIKPerformRouteConfig *, ZIKRemoveRouteConfig *>
+#define ZIKModuleServiceRouter(ModuleConfigProtocol) ZIKServiceRouter<id<ZIKRoutableView>, ZIKPerformRouteConfig<ModuleConfigProtocol> *, ZIKRemoveRouteConfig *>

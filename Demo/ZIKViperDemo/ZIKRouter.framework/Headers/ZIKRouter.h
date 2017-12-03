@@ -14,31 +14,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-///Methods for ZIKRouter subclass
-@protocol ZIKRouterProtocol <NSObject>
-@required
-///Create destination and initilize it with configuration
-- (id)destinationWithConfiguration:(__kindof ZIKRouteConfiguration *)configuration;
-///Perform your custom route action
-- (void)performRouteOnDestination:(nullable id)destination configuration:(__kindof ZIKRouteConfiguration *)configuration;
-///If the router use a custom configuration, override this and return the configuration
-+ (__kindof ZIKRouteConfiguration *)defaultRouteConfiguration;
-
-///Whether the router can perform route now
-- (BOOL)canPerform;
-///Whether the router can remove route now
-- (BOOL)canRemove;
-///If you can undo your route action, such as dismiss a routed view, do remove in this
-- (void)removeDestination:(id)destination removeConfiguration:(__kindof ZIKRouteConfiguration *)removeConfiguration;
-///If the router use a custom configuration, override this and return the configuration
-+ (__kindof ZIKRouteConfiguration *)defaultRemoveConfiguration;
-
-@optional
-///Whether the route action is synchronously
-+ (BOOL)completeSynchronously;
-- (NSString *)errorDomain;
-
-@end
+///Enble this to check whether all routers and routable protocols are properly implemented.
+#ifdef DEBUG
+#define ZIKROUTER_CHECK 1
+#else
+#define ZIKROUTER_CHECK 0
+#endif
 
 /**
  Abstract superclass for router that can perform route and remove route.
@@ -51,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  See sample code in ZIKServiceRouter and ZIKViewRouter for more detail.
  */
-@interface ZIKRouter<__covariant RouteConfig: ZIKRouteConfiguration *, __covariant RemoveConfig: ZIKRouteConfiguration *, __covariant RouterType> : NSObject <ZIKRouterProtocol>
+@interface ZIKRouter<__covariant Destination: id, __covariant RouteConfig: ZIKPerformRouteConfiguration *, __covariant RemoveConfig: ZIKRemoveRouteConfiguration *> : NSObject
 ///State of route.
 @property (nonatomic, readonly, assign) ZIKRouterState state;
 ///Configuration for performRoute; Return copy of configuration, so modify this won't change the real configuration inside router.
@@ -69,30 +50,54 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
+#pragma mark Perform
+
+///Whether the router can perform route now.
 - (BOOL)canPerform;
 ///Perform route directly.
 - (void)performRoute;
 ///Perform with success handler and error handler.
 - (void)performRouteWithSuccessHandler:(void(^ __nullable)(void))performerSuccessHandler
-                          errorHandler:(void(^ __nullable)(SEL routeAction, NSError *error))performerErrorHandler;
-
-- (BOOL)canRemove;
-///Remove route directly.
-- (void)removeRoute;
-///Remove with success handler and error handler.
-- (void)removeRouteWithSuccessHandler:(void(^ __nullable)(void))performerSuccessHandler
-                         errorHandler:(void(^ __nullable)(SEL routeAction, NSError *error))performerErrorHandler;
+                          errorHandler:(void(^ __nullable)(ZIKRouteAction routeAction, NSError *error))performerErrorHandler;
 
 ///If this route action doesn't need any arguments, just perform directly.
-+ (nullable RouterType)performRoute;
++ (nullable instancetype)performRoute;
 ///Set dependencies required by destination and perform route.
-+ (nullable RouterType)performWithConfiguring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder;
++ (nullable instancetype)performWithConfiguring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder;
 ///Set dependencies required by destination and perform route, and you can remove the route with remove configuration later.
-+ (nullable RouterType)performWithConfiguring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder
-                                     removing:(void(NS_NOESCAPE ^ _Nullable)(RemoveConfig config))removeConfigBuilder;
++ (nullable instancetype)performWithConfiguring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder
+                                       removing:(void(NS_NOESCAPE ^ _Nullable)(RemoveConfig config))removeConfigBuilder;
 
 ///Whether the route action is synchronously.
 + (BOOL)completeSynchronously;
+
+#pragma mark Remove
+
+///Whether the router can remove route now.
+- (BOOL)canRemove;
+///Remove route directly. If -canRemove return NO, this will failed.
+- (void)removeRoute;
+///Remove with success handler and error handler.
+- (void)removeRouteWithSuccessHandler:(void(^ __nullable)(void))performerSuccessHandler
+                         errorHandler:(void(^ __nullable)(ZIKRouteAction routeAction, NSError *error))performerErrorHandler;
+///Remove route and prepare before removing.
+- (void)removeRouteWithConfiguring:(void(NS_NOESCAPE ^)(RemoveConfig config))removeConfigBuilder;
+
+#pragma mark Factory
+
+///The router may can't make destination synchronously, or it's not for providing a destination but only for performing some actions.
++ (BOOL)canMakeDestination;
+
+///Synchronously get destination.
++ (nullable Destination)makeDestination;
+
+///Synchronously get destination, and prepare the destination with destination protocol.
++ (nullable Destination)makeDestinationWithPreparation:(void(^ _Nullable)(Destination destination))prepare;
+
++ (nullable Destination)makeDestinationWithConfiguring:(void(^ _Nullable)(RouteConfig config))configBuilder;
+
+#pragma mark Debug
+
 + (NSString *)descriptionOfState:(ZIKRouterState)state;
 @end
 

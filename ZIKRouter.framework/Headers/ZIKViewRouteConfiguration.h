@@ -15,6 +15,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern ZIKRouteAction const ZIKRouteActionToView;
+extern ZIKRouteAction const ZIKRouteActionToViewModule;
+extern ZIKRouteAction const ZIKRouteActionPrepareOnDestination;
+extern ZIKRouteAction const ZIKRouteActionPerformOnDestination;
+
 ///Route types for view.
 typedef NS_ENUM(NSInteger,ZIKViewRouteType) {
     ///Navigation using @code-[source pushViewController:animated:]@endcode Source must be a UIViewController.
@@ -90,7 +95,7 @@ typedef void(^ZIKViewRoutePopoverConfiger)(NS_NOESCAPE ZIKViewRoutePopoverConfig
 typedef void(^ZIKViewRouteSegueConfiger)(NS_NOESCAPE ZIKViewRouteSegueConfigure);
 
 ///Configuration for view module. You can use a subclass to add complex dependencies for destination. The subclass must conforms to NSCopying, because the configuration need to be copied when routing.
-@interface ZIKViewRouteConfiguration : ZIKRouteConfiguration <NSCopying>
+@interface ZIKViewRouteConfiguration : ZIKPerformRouteConfiguration <NSCopying>
 
 /**
  Source ViewController or View for route.
@@ -135,7 +140,7 @@ typedef void(^ZIKViewRouteSegueConfiger)(NS_NOESCAPE ZIKViewRouteSegueConfigure)
  @note
  Use weakSelf in prepareDestination to avoid retain cycle.
  */
-@property (nonatomic, copy, nullable) void(^prepareDestination)(id destination);
+//@property (nonatomic, copy, nullable) void(^prepareDestination)(id destination);
 
 /**
  Completion for performRoute.
@@ -152,7 +157,7 @@ typedef void(^ZIKViewRouteSegueConfiger)(NS_NOESCAPE ZIKViewRouteSegueConfigure)
  
  ZIKViewRouter use UIViewController's transitionCoordinator to do completion, so if you override segue's -perform or override -showViewController:sender: and provide custom transition, but didn't use a transitionCoordinator (such as use +[UIView animateWithDuration:animations:completion:] to animate), routeCompletion when be called immediately, before the animation really completes.
  */
-@property (nonatomic, copy, nullable) void(^routeCompletion)(id destination);
+//@property (nonatomic, copy, nullable) void(^routeCompletion)(id destination);
 
 ///Sender for -showViewController:sender: and -showDetailViewController:sender:
 @property (nonatomic, weak, nullable) id sender;
@@ -191,18 +196,11 @@ typedef void(^ZIKViewRouteSegueConfiger)(NS_NOESCAPE ZIKViewRouteSegueConfigure)
 @property (nonatomic, weak, nullable) id sender;
 @end
 
-@interface ZIKViewRemoveConfiguration : ZIKRouteConfiguration <NSCopying>
+@interface ZIKViewRemoveConfiguration : ZIKRemoveRouteConfiguration <NSCopying>
 ///For pop/dismiss, default is YES
 @property (nonatomic, assign) BOOL animated;
 
-/**
- Handler when finish remove.
- @note
- Use weakSelf in routeCompletion to avoid retain cycle.
- */
-@property (nonatomic, copy, nullable) void(^removeCompletion)(void);
-
-///When set to YES and the router still exists, if the same destination instance is removed from external, removeCompletion, successHandler, errorHandler will be called
+///When set to YES and the router still exists, if the same destination instance is removed from external, successHandler, errorHandler will be called
 @property (nonatomic, assign) BOOL handleExternalRoute;
 @end
 

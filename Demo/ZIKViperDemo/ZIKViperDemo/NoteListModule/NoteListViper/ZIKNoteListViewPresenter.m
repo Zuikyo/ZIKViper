@@ -53,7 +53,7 @@
                  destination.delegate = weakSelf;
                  destination.message = @"Login in to use this app";
              };
-             config.errorHandler = ^(SEL  _Nonnull routeAction, NSError * _Nonnull error) {
+             config.errorHandler = ^(ZIKRouteAction routeAction, NSError * _Nonnull error) {
                  
              };
          }];

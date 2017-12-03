@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZIKNoteListViewRouter : ZIKViewRouter <ZIKViewRouterProtocol,ZIKViperRouter>
+@interface ZIKNoteListViewRouter : ZIKViewRouter <ZIKViperRouter>
 
 @end
 

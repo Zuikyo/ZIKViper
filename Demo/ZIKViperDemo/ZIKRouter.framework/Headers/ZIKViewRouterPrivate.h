@@ -13,7 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSNotificationName kZIKViewRouterRegisterCompleteNotification;
 typedef  BOOL(^ZIKViewClassValidater)(Class viewClass);
 
 ///Private methods.
@@ -22,12 +21,12 @@ typedef  BOOL(^ZIKViewClassValidater)(Class viewClass);
 + (BOOL)shouldCheckImplementation;
 
 ///Is auto registration all finished.
-+ (BOOL)_isLoadFinished;
++ (BOOL)_isAutoRegistrationFinished;
 
-///Validate all registered view classes of this router class, return the class when the validater return false. Only available when ZIKVIEWROUTER_CHECK is true.
+///Validate all registered view classes of this router class, return the class when the validater return false. Only available when ZIKROUTER_CHECK is true.
 + (_Nullable Class)validateRegisteredViewClasses:(ZIKViewClassValidater)handler;
 
-+ (void)_callbackGlobalErrorHandlerWithRouter:(nullable __kindof ZIKViewRouter *)router action:(SEL)action error:(NSError *)error;
++ (void)_callbackGlobalErrorHandlerWithRouter:(nullable __kindof ZIKViewRouter *)router action:(ZIKRouteAction)action error:(NSError *)error;
 
 + (void)_swift_registerViewProtocol:(id)viewProtocol;
 

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)constructForModifyingNote:(ZIKNoteModel *)note;
 @end
 
-@interface ZIKEditorViewRouter : ZIKViewRouter <ZIKViewRouterProtocol>
+@interface ZIKEditorViewRouter : ZIKViewRouter
 
 @end
 

@@ -10,21 +10,14 @@
 //
 
 #import "ZIKRouter.h"
-#import "ZIKServiceRouterProtocol.h"
 #import "ZIKServiceRoutable.h"
 #import "ZIKServiceModuleRoutable.h"
-#import "ZIKServiceRouteConfiguration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern ZIKRouteAction const ZIKRouteActionToService;
+extern ZIKRouteAction const ZIKRouteActionToServiceModule;
 extern NSString *const kZIKServiceRouterErrorDomain;
-
-///Enble this to check whether all routers and routable protocols are properly implemented.
-#ifdef DEBUG
-#define ZIKSERVICEROUTER_CHECK 1
-#else
-#define ZIKSERVICEROUTER_CHECK 0
-#endif
 
 @class ZIKServiceRouter;
 /**
@@ -36,10 +29,10 @@ extern NSString *const kZIKServiceRouterErrorDomain;
  @param routeAction The action where error happens
  @param error Error in kZIKServiceRouterErrorDomain or domain from subclass router, see ZIKServiceRouteError for detail
  */
-typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nullable router, SEL routeAction, NSError *error);
+typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nullable router, ZIKRouteAction routeAction, NSError *error);
 
 /**
- Abstract superclass of service router for discovering service and injecting dependencies with registered protocol. Subclass it and implement ZIKServiceRouterProtocol to make router of your service.
+ Abstract superclass of service router for discovering service and injecting dependencies with registered protocol. Subclass it and override those methods in `ZIKRouterInternal` and `ZIKServiceRouterInternal` to make router of your service.
  
  @code
  __block id<LoginServiceInput> loginService;
@@ -48,55 +41,14 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
                       //Prepare service
                 }];
  @endcode
- 
- In Swift, you can use router type with generic and protocol:
- @code
- //Injected dependency from outside
- var loginServiceRouterClass: ZIServiceRouter<ZIKServiceRouteConfiguration & ZIKLoginServiceConfigInput, ZIKRouteConfiguration>.Type!
- 
- //Use the router type to perform route
- self.loginServiceRouterClass.perform { config in
-     //config is inferred as ZIKLoginServiceConfigInput, modify config to prepare service
-     
-     config.routeCompletion = { destination in
-         loginService = destination;
-     }
- }
- @endcode
- In Objective-C, you can't use a type like Swift, you can only declare a router instance, and let the router be injected from outside:
- @code
- @property (nonatomic, strong) ZIKServiceRouter<ZIKServiceRouteConfiguration<ZIKLoginServiceConfigProtocol> *, ZIKRouteConfiguration*> *loginServiceRouter;
- @endcode
- So, it only works as a dependency daclaration. But this design pattern let you hide subclass type.
  */
-@interface ZIKServiceRouter<ServiceRouteConfig: ZIKServiceRouteConfiguration *, ServiceRemoveConfig: ZIKRouteConfiguration *> : ZIKRouter<ServiceRouteConfig, ServiceRemoveConfig, ZIKServiceRouter *> <ZIKServiceRouterProtocol>
-
-@end
-
-@interface ZIKServiceRouter<ServiceRouteConfig: ZIKServiceRouteConfiguration *, ServiceRemoveConfig: ZIKRouteConfiguration *> (Perform)
-
-///Convenient method to perform route
-+ (nullable ZIKServiceRouter<ServiceRouteConfig, ServiceRemoveConfig> *)performWithConfiguring:(void(NS_NOESCAPE ^)(ServiceRouteConfig config))configBuilder
-                                                                                      removing:(void(NS_NOESCAPE ^ _Nullable)(ServiceRemoveConfig config))removeConfigBuilder;
-+ (nullable ZIKServiceRouter<ServiceRouteConfig, ServiceRemoveConfig> *)performWithConfiguring:(void(NS_NOESCAPE ^)(ServiceRouteConfig config))configBuilder;
-
-///Default implemenation of -performXX will call routeCompletion synchronously, so the user can get service synchronously. Subclass router may return NO if it's service can only be generated asynchronously.
-+ (BOOL)completeSynchronously;
-
-@end
-
-@interface ZIKServiceRouter (Factory)
-
-///Asynchronous get destination
-+ (nullable id)makeDestinationWithPreparation:(void(^ _Nullable)(id destination))prepare;
-///Asynchronous get destination
-+ (nullable id)makeDestination;
+@interface ZIKServiceRouter<__covariant Destination: id, __covariant RouteConfig: ZIKPerformRouteConfiguration *, __covariant RemoveConfig: ZIKRemoveRouteConfiguration *> : ZIKRouter<Destination, RouteConfig, RemoveConfig>
 
 @end
 
 @interface ZIKServiceRouter (ErrorHandle)
 
-///Set error callback for all service router instance. Use this to debug and log
+///Set error callback for all service router instance. Use this to debug and log.
 + (void)setGlobalErrorHandler:(ZIKServiceRouteGlobalErrorHandler)globalErrorHandler;
 
 @end
@@ -121,7 +73,7 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
 /**
  Register a service protocol that all services registered with the router conform to, then use ZIKServiceRouter.toService() to get the router class.You can register your protocol and let the service conforms to the protocol in category in your interface adapter.
  
- @param serviceProtocol The protocol conformed by service to identify the routerClass. Should inherit from ZIKServiceRoutable when ZIKSERVICEROUTER_CHECK is enabled. When ZIKSERVICEROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceRoutable.
+ @param serviceProtocol The protocol conformed by service to identify the routerClass. Should inherit from ZIKServiceRoutable when ZIKROUTER_CHECK is enabled. When ZIKROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceRoutable.
  */
 + (void)registerServiceProtocol:(Protocol *)serviceProtocol;
 
@@ -130,7 +82,7 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
  
  When the service module contains not only a single service class, but also other internal services, and you can't prepare the module with a simple service protocol, then you need a moudle config protocol.
  
- @param configProtocol The protocol conformed by default configuration of the routerClass. Should inherit from ZIKServiceModuleRoutable when ZIKSERVICEROUTER_CHECK is enabled. When ZIKSERVICEROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceModuleRoutable.
+ @param configProtocol The protocol conformed by default configuration of the routerClass. Should inherit from ZIKServiceModuleRoutable when ZIKROUTER_CHECK is enabled. When ZIKROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceModuleRoutable.
  */
 + (void)registerModuleProtocol:(Protocol *)configProtocol;
 
@@ -141,7 +93,7 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
 /**
  Get the router class registered with a service protocol.
  
- The parameter serviceProtocol of the block is: the protocol conformed by the service. Should be a ZIKServiceRoutable protocol when ZIKSERVICEROUTER_CHECK is enabled. When ZIKSERVICEROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceRoutable.
+ The parameter serviceProtocol of the block is: the protocol conformed by the service. Should be a ZIKServiceRoutable protocol when ZIKROUTER_CHECK is enabled. When ZIKROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceRoutable.
  
  The return Class of the block is: a router class matched with the service. Return nil if protocol is nil or not declared. There will be an assert failure when result is nil.
  */
@@ -150,7 +102,7 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
 /**
  Get the router class combined with a custom ZIKRouteConfiguration conforming to a unique protocol.
  
- The parameter configProtocol of the block is: the protocol conformed by defaultConfiguration of router. Should be a ZIKServiceModuleRoutable protocol when ZIKSERVICEROUTER_CHECK is enabled. When ZIKSERVICEROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceModuleRoutable.
+ The parameter configProtocol of the block is: the protocol conformed by defaultConfiguration of router. Should be a ZIKServiceModuleRoutable protocol when ZIKROUTER_CHECK is enabled. When ZIKROUTER_CHECK is disabled, the protocol doesn't need to inheriting from ZIKServiceModuleRoutable.
  The return Class of the block is: a router class matched with the service. Return nil if protocol is nil or not declared. There will be an assert failure when result is nil.
  */
 @property (nonatomic,class,readonly) Class _Nullable (^toModule)(Protocol *configProtocol) NS_SWIFT_UNAVAILABLE("Use Registry.router(to:) function in ZRouter instead.");
@@ -162,7 +114,9 @@ typedef NS_ENUM(NSInteger, ZIKServiceRouteError) {
     ZIKServiceRouteErrorInvalidProtocol,
     ///Router returns nil for destination, you can't use this service now. Maybe your configuration is invalid, or there is a bug in the router.
     ZIKServiceRouteErrorServiceUnavailable,
-    ///Infinite recursion for performing route detected. See ZIKViewRouterProtocol's -prepareDestination:configuration: for more detail.
+    ///Perform or remove route action failed. Remove route when destiantion was already dealloced.
+    ZIKServiceRouteErrorActionFailed,
+    ///Infinite recursion for performing route detected. See -prepareDestination:configuration: for more detail.
     ZIKServiceRouteErrorInfiniteRecursion
 };
 
