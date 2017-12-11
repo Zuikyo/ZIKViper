@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ___VARIABLE_productName___WireframeWireframe : NSObject <ZIKTViperWireframe, ___VARIABLE_productName___WireframeInput>
+@interface ___VARIABLE_productName___Wireframe : NSObject <ZIKTViperWireframe, ___VARIABLE_productName___WireframeInput>
 
 @end
 

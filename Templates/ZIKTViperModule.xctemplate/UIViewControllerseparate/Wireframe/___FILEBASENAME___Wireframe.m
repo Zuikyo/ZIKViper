@@ -10,11 +10,11 @@
 #import <ZIKTViper/ZIKTViperWireframePrivate.h>
 #import <ZIKTViper/ZIKTViperView.h>
 
-@interface ___VARIABLE_productName___WireframeWireframe () <ZIKTViperWireframePrivate>
+@interface ___VARIABLE_productName___Wireframe () <ZIKTViperWireframePrivate>
 @property (nonatomic, weak) id<ZIKTViperView> view;
 @property (nonatomic, strong) id<ZIKTViperRouter> router;
 @end
 
-@implementation ___VARIABLE_productName___WireframeWireframe
+@implementation ___VARIABLE_productName___Wireframe
 
 @end

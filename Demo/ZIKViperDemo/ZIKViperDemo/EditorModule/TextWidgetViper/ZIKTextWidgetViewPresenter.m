@@ -43,6 +43,7 @@
     if (self.view.dataSource.previewing == YES) {
         return;
     }
+    
     if ([self.interactor needValidateAccount]) {
         __weak typeof(self) weakSelf = self;
         UIViewController *source = self.view.routeSource;

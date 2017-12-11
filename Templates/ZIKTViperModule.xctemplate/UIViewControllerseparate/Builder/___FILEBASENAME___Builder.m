@@ -21,11 +21,11 @@
 #import "___VARIABLE_productName___InteractorEventHandler.h"
 #import "___VARIABLE_productName___InteractorDataSource.h"
 
-@implementation ___VARIABLE_productName___BuilderBuilder
+@implementation ___VARIABLE_productName___Builder
 
 + (UIViewController *)viewControllerWithRouter:(id<___VARIABLE_productName___RouterInput>)router {
-#error create view
-    ___VARIABLE_productName___ViewController *view =;
+#error Create view
+    ___VARIABLE_productName___ViewController *view = ;
     
     [self buildView:(id<ZIKTViperViewPrivate>)view router:router];
     return view;
@@ -35,7 +35,7 @@
     NSParameterAssert([view isKindOfClass:[___VARIABLE_productName___ViewController class]]);
     ___VARIABLE_productName___ViewPresenter *presenter = [[___VARIABLE_productName___ViewPresenter alloc] init];
     ___VARIABLE_productName___Interactor *interactor = [[___VARIABLE_productName___Interactor alloc] init];
-    ___VARIABLE_productName___WireframeWireframe *wireframe = [[___VARIABLE_productName___WireframeWireframe alloc] init];
+    ___VARIABLE_productName___Wireframe *wireframe = [[___VARIABLE_productName___Wireframe alloc] init];
     
     [self assembleViperForView:view
                      presenter:(id<ZIKTViperPresenterPrivate>)presenter

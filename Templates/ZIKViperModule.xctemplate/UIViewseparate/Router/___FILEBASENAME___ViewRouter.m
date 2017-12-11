@@ -45,9 +45,9 @@
 }
 
 - (nullable ___VARIABLE_productName___View *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
-#error create destination
+#error Create destination
     //create your view, and initialize it with configuration. Return nil if configuration is invalid.
-    ___VARIABLE_productName___View *destination;
+    ___VARIABLE_productName___View *destination = ;
     
     return destination;
 }

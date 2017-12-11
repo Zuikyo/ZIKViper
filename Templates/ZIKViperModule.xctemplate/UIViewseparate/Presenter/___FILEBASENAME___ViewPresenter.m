@@ -9,7 +9,7 @@
 #import "___VARIABLE_productName___ViewPresenter.h"
 #import <ZIKViper/ZIKViperView.h>
 #import <ZIKViper/ZIKViperPresenterPrivate.h>
-@import ZIKRouter;
+#import <ZIKRouter/ZIKViewRouter.h>
 #import "___VARIABLE_productName___ViewInput.h"
 #import "___VARIABLE_productName___InteractorInput.h"
 #import "___VARIABLE_productName___InteractorDataSource.h"

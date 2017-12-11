@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ZIKTViperViewPrivate,___VARIABLE_productName___RouterInput;
-@interface ___VARIABLE_productName___BuilderBuilder : NSObject
+@interface ___VARIABLE_productName___Builder : NSObject
 
 ///Change this method, add your arguments for initializing the module
 + (UIView *)viewWithRouteSource:(nullable UIViewController *)routeSource router:(id<___VARIABLE_productName___RouterInput>)router;

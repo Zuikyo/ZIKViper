@@ -21,12 +21,12 @@
 #import "___VARIABLE_productName___InteractorEventHandler.h"
 #import "___VARIABLE_productName___InteractorDataSource.h"
 
-@implementation ___VARIABLE_productName___BuilderBuilder
+@implementation ___VARIABLE_productName___Builder
 
 ///Change this method, add your arguments for initializing the module
 + (UIView *)viewWithRouteSource:(nullable UIViewController *)routeSource router:(id<___VARIABLE_productName___RouterInput>)router {
-#error create view
-    ___VARIABLE_productName___View *view =;
+#error Create view
+    ___VARIABLE_productName___View *view = ;
     
     [self buildView:(id<ZIKTViperViewPrivate>)view
         routeSource:routeSource
@@ -40,7 +40,7 @@
     NSParameterAssert([view isKindOfClass:[___VARIABLE_productName___View class]]);
     ___VARIABLE_productName___ViewPresenter *presenter = [[___VARIABLE_productName___ViewPresenter alloc] init];
     ___VARIABLE_productName___Interactor *interactor = [[___VARIABLE_productName___Interactor alloc] init];
-    ___VARIABLE_productName___WireframeWireframe *wireframe = [[___VARIABLE_productName___WireframeWireframe alloc] init];
+    ___VARIABLE_productName___Wireframe *wireframe = [[___VARIABLE_productName___Wireframe alloc] init];
     
     if ([view respondsToSelector:@selector(setRouteSource:)]) {
         view.routeSource = routeSource;
