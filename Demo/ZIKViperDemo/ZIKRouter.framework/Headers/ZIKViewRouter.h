@@ -18,10 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Abstract superclass for view router.
- Subclass it and override those methods in `ZIKRouterInternal` and `ZIKViewRouterInternal` to make router of your view. Then use generic with protocol or those dynamic discovering functions to reduce couple with subclasses.
+ Subclass it and override those methods in `ZIKRouterInternal` and `ZIKViewRouterInternal` to make router of your view.
  
  @discussion
- Features:
+ ## Features:
  
  1. Find destination with registered protocol, decoupling the source with the destination class.
  
@@ -33,19 +33,19 @@ NS_ASSUME_NONNULL_BEGIN
  
  5. AOP support for destination's route action.
  
- Method swizzle declaration:
+ ## Method swizzle declaration:
  
  What did ZIKViewRouter hooked: -willMoveToParentViewController:, -didMoveToParentViewController:, -viewWillAppear:, -viewDidAppear:, -viewWillDisappear:, -viewDidDisappear:, -viewDidLoad, -willMoveToSuperview:, -didMoveToSuperview, -willMoveToWindow:, -didMoveToWindow, all UIViewControllers' -prepareForSegue:sender:, all UIStoryboardSegues' -perform.
  
  ZIKViewRouter hooks these methods for AOP. In -willMoveToSuperview, -willMoveToWindow:, -prepareForSegue:sender:, it detects if the view is registered with a router, and auto create a router if it's not routed from it's router.
  
- About auto create:
+ ## About auto create:
  
- When a UIViewController conforms to ZIKRoutableView, and is routing from storyboard segue or from -instantiateInitialViewController, a router will be auto created to prepare the UIViewController. If the destination needs preparing, the segue's performer is responsible for preparing in delegate method -prepareDestinationFromExternal:configuration:. But if a UIViewController is routed from code manually, ZIKViewRouter won't auto create router, only get AOP notify, because we can't find the performer to prepare the destination. So you should avoid route the UIViewController instance from code manually, if you use a router as a dependency injector for preparing the UIViewController. You can check whether the destination is prepared properly in those AOP delegate methods.
+ When a UIViewController conforms to ZIKRoutableView, and is routing from storyboard segue or from -instantiateInitialViewController, a router will be auto created to prepare the UIViewController. If the destination needs preparing, the segue's performer is responsible for preparing in delegate method -prepareDestinationFromExternal:configuration:. But if a UIViewController is routed from code manually, ZIKViewRouter won't auto create router, only get AOP notify, because we can't find the performer to prepare the destination. So if you use a router as a dependency injector for preparing the UIViewController, you should avoid route the UIViewController instance from code manually.
  
  When Adding a registered UIView by code or xib, a router will be auto created. We search the view controller with custom class (not system class like native UINavigationController, or any container view controller) in it's responder hierarchy as the performer. If the registered UIView needs preparing, you have to add the view to a superview in a view controller before it removed from superview. There will be an assert failure if there is no view controller to prepare it (such as: 1. add it to a superview, and the superview is never added to a view controller; 2. add it to a UIWindow). If your custom class view use a routable view as it's subview, the custom view should use a router to add and prepare the routable view, then the routable view don't need to search performer because it's already prepared.
  */
-@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *, __covariant RemoveConfig: ZIKViewRemoveConfiguration *> : ZIKRouter<Destination, RouteConfig, RemoveConfig>
+@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *> : ZIKRouter<Destination, RouteConfig, ZIKViewRemoveConfiguration *>
 
 ///If this router's view is a UIViewController routed from storyboard, or a UIView added as subview from xib or code, a router will be auto created to prepare the view, and the router's autoCreated is YES; But when a UIViewController is routed from code manually, router won't be auto created because we can't find the performer to prepare the destination.
 @property (nonatomic, readonly, assign) BOOL autoCreated;
@@ -59,7 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *, __covariant RemoveConfig: ZIKViewRemoveConfiguration *> (Perform)
+@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *> (Perform)
+
 /**
  Whether the router can perform a view route now
  @discusstion
@@ -80,9 +81,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (nullable instancetype)performRoute NS_UNAVAILABLE;
 + (nullable instancetype)performWithConfiguring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder
-                                       removing:(void(NS_NOESCAPE ^ _Nullable)(RemoveConfig config))removeConfigBuilder NS_UNAVAILABLE;
+                                       removing:(void(NS_NOESCAPE ^ _Nullable)(ZIKViewRemoveConfiguration *config))removeConfigBuilder NS_UNAVAILABLE;
 + (nullable instancetype)performWithConfiguring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder NS_UNAVAILABLE;
-
 
 /**
  Perform route from source view to destination view.
@@ -103,13 +103,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable instancetype)performFromSource:(nullable id<ZIKViewRouteSource>)source
                                configuring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder
-                                  removing:(void(NS_NOESCAPE ^ _Nullable)(RemoveConfig config))removeConfigBuilder;
+                                  removing:(void(NS_NOESCAPE ^ _Nullable)(ZIKViewRemoveConfiguration *config))removeConfigBuilder;
 
 ///If this destination doesn't need any variable to initialize, just pass source and perform route.
 + (nullable instancetype)performFromSource:(nullable id<ZIKViewRouteSource>)source routeType:(ZIKViewRouteType)routeType;
 @end
 
-@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *, __covariant RemoveConfig: ZIKViewRemoveConfiguration *> (PerformOnDestination)
+@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *> (PerformOnDestination)
 
 /**
  Perform route on destination. If you get a prepared destination by ZIKViewRouteTypeGetDestination, you can use this method to perform route on the destination.
@@ -122,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable instancetype)performOnDestination:(Destination)destination
                                    fromSource:(nullable id<ZIKViewRouteSource>)source
                                   configuring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder
-                                     removing:(void(NS_NOESCAPE ^ _Nullable)(RemoveConfig config))removeConfigBuilder;
+                                     removing:(void(NS_NOESCAPE ^ _Nullable)(ZIKViewRemoveConfiguration *config))removeConfigBuilder;
 + (nullable instancetype)performOnDestination:(Destination)destination
                                    fromSource:(nullable id<ZIKViewRouteSource>)source
                                   configuring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder;
@@ -132,7 +132,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *, __covariant RemoveConfig: ZIKViewRemoveConfiguration *> (Prepare)
+@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *> (Prepare)
 /**
  Prepare destination from external, then you can use the router to perform route. You can also use this as a builder to prepare view created from external.
 
@@ -143,13 +143,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable instancetype)prepareDestination:(Destination)destination
                                 configuring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder
-                                   removing:(void(NS_NOESCAPE ^ _Nullable)(RemoveConfig config))removeConfigBuilder;
+                                   removing:(void(NS_NOESCAPE ^ _Nullable)(ZIKViewRemoveConfiguration *config))removeConfigBuilder;
 
 + (nullable instancetype)prepareDestination:(Destination)destination
                                 configuring:(void(NS_NOESCAPE ^)(RouteConfig config))configBuilder;
 @end
 
 @interface ZIKViewRouter (Remove)
+
 /**
  Whether can remove a performed view route. Always use it in main thread, bacause state may be changed in main thread after you check the state in child thread.
  @discussion
@@ -171,10 +172,10 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return return YES if can do removeRoute.
  */
-//- (BOOL)canRemove;
+- (BOOL)canRemove;
 
 ///Remove a routed destination. Auto choose proper remove action in pop/dismiss/removeFromParentViewController/removeFromSuperview/custom. If -canRemove return NO, this will failed, use -removeRouteWithSuccessHandler:errorHandler: to get error info. Main thread only.
-//- (void)removeRoute;
+- (void)removeRoute;
 
 @end
 
@@ -277,8 +278,8 @@ typedef void(^ZIKViewRouteGlobalErrorHandler)(__kindof ZIKViewRouter * _Nullable
  
  //Get ZIKLoginViewRouter and perform route
  [ZIKViewRouter.toView(@protocol(ZIKLoginViewProtocol))
-     performWithConfiguring:^(ZIKViewRouteConfiguration *config) {
-         config.source = self;
+    performFromSource:self
+    configuring:^(ZIKViewRouteConfiguration *config) {
          config.prepareDestination = ^(id<ZIKLoginViewProtocol> destination) {
              destination.account = @"my account";
          };
@@ -286,7 +287,7 @@ typedef void(^ZIKViewRouteGlobalErrorHandler)(__kindof ZIKViewRouter * _Nullable
  @endcode
  See +registerViewProtocol: and ZIKViewRoutable for more info.
  */
-@property (nonatomic,class,readonly) Class _Nullable (^toView)(Protocol *viewProtocol) NS_SWIFT_UNAVAILABLE("Use Registry.router(to:) function in ZRouter instead.");
+@property (nonatomic,class,readonly) Class _Nullable (^toView)(Protocol *viewProtocol);
 
 /**
  Get the view router class combined with a custom ZIKViewRouteConfiguration conforming to a module config protocol.
@@ -336,14 +337,14 @@ typedef void(^ZIKViewRouteGlobalErrorHandler)(__kindof ZIKViewRouter * _Nullable
  
  //Get ZIKLoginViewRouter and perform route
  [ZIKViewRouter.toModule(@protocol(ZIKLoginViewConfigProtocol))
-     performWithConfiguring:^(ZIKViewRouteConfiguration<ZIKLoginViewConfigProtocol> *config) {
-         config.source = self;
+    performFromSource:self
+    configuring:^(ZIKViewRouteConfiguration<ZIKLoginViewConfigProtocol> *config) {
          config.account = @"my account";
  }];
  @endcode
  See +registerModuleProtocol: and ZIKViewModuleRoutable for more info.
  */
-@property (nonatomic,class,readonly) Class _Nullable (^toModule)(Protocol *configProtocol) NS_SWIFT_UNAVAILABLE("Use Registry.router(to:) function in ZRouter instead.");
+@property (nonatomic,class,readonly) Class _Nullable (^toModule)(Protocol *configProtocol);
 
 @end
 
@@ -351,5 +352,12 @@ typedef void(^ZIKViewRouteGlobalErrorHandler)(__kindof ZIKViewRouter * _Nullable
 @protocol ZIKRoutableView <NSObject>
 
 @end
+
+///The routable UIViewController or UIView must be declared as routable.
+#define DeclareRoutableView(RoutableView, ExtensionName)    \
+@interface RoutableView (ExtensionName) <ZIKRoutableView>    \
+@end    \
+@implementation RoutableView (ExtensionName) \
+@end    \
 
 NS_ASSUME_NONNULL_END

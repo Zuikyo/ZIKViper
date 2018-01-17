@@ -14,9 +14,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 ///Internal methods for subclass to override. Use these methods when implementing your custom route.
-@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *, __covariant RemoveConfig: ZIKViewRemoveConfiguration *> ()
+@interface ZIKViewRouter<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *> ()
 @property (nonatomic, readonly, copy) RouteConfig original_configuration;
-@property (nonatomic, readonly, copy) RemoveConfig original_removeConfiguration;
+@property (nonatomic, readonly, copy) ZIKViewRemoveConfiguration *original_removeConfiguration;
 
 #pragma mark Required Override
 
@@ -41,15 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Optional Override
 
 ///Invoked after auto registration is finished when ZIKROUTER_CHECK is enabled. You can override and validate whether those routable swift protocols used in your module as external dependencies have registered with routers, because we can't enumerate swift protocols at runtime.
-+ (void)_autoRegistrationDidFinished;
++ (void)_registrationDidFinished;
 
 /**
- Whether the destination is all configured.
+ Whether the destination requires the performer to prepare it. This method is for destination from storyboard and UIView from -addSubview:.
  @discussion
  Destination created from external will use this method to determine whether the router have to search the performer to prepare itself by invoking performer's -prepareDestinationFromExternal:configuration:.
  
- @param destination The view to perform route.
- @return If the destination is not prepared, return NO. Default is YES.
+ @param destination The view from external, such as UIViewController from storyboard and UIView from -addSubview:.
+ @return If the destination requires the performer to prepare it, return NO, and router will call performer's -prepareDestinationFromExternal:configuration:. Default is YES.
  */
 + (BOOL)destinationPrepared:(Destination)destination;
 
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  @warning
  If a router(A) fetch destination(A)'s dependency destination(B) with another router(B) in router(A)'s -prepareDestination:configuration:, and the destination(A) is also the destination(B)'s dependency, so destination(B)'s router(B) will also fetch destination(A) with router(A) in it's -prepareDestination:configuration:. Then there will be an infinite recursion.
  
- To void it, when router(A) fetch destination(B) in -prepareDestination:configuration:, router(A) must inject destination(A) to destination(B) in -prepareRoute block of router(B)'s config or use custom config property. And router(B) should check in -prepareDestination:configuration: to avoid unnecessary preparation to fetch destination(A) again.
+ To void it, when router(A) fetch destination(B) in -prepareDestination:configuration:, router(A) must inject destination(A) to destination(B) in -prepareDestination block of router(B)'s config or use custom config property. And router(B) should check in -prepareDestination:configuration: to avoid unnecessary preparation to fetch destination(A) again.
  
  @note
  When it's removed and routed again, it's alse treated as first appearance, so this method may be called more than once. You should check whether the destination is already prepared to avoid unnecessary preparation.
@@ -95,10 +95,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Custom Route Optional Override
 
 ///Remove your custom route. You must maintain the router's state with methods in ZIKViewRouterInternal.h.
-- (void)removeCustomRouteOnDestination:(Destination)destination fromSource:(nullable id)source removeConfiguration:(RemoveConfig)removeConfiguration configuration:(RouteConfig)configuration;
+- (void)removeCustomRouteOnDestination:(Destination)destination fromSource:(nullable id)source removeConfiguration:(ZIKViewRemoveConfiguration *)removeConfiguration configuration:(RouteConfig)configuration;
 
 ///Validate the configuration for your custom route. If return NO, current perform action will be failed.
-+ (BOOL)validateCustomRouteConfiguration:(RouteConfig)configuration removeConfiguration:(RemoveConfig)removeConfiguration;
++ (BOOL)validateCustomRouteConfiguration:(RouteConfig)configuration removeConfiguration:(ZIKViewRemoveConfiguration *)removeConfiguration;
 
 #pragma mark Custom Route State Control
 

@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 ///Internal methods for subclass.
-@interface ZIKServiceRouter<__covariant Destination: id, __covariant RouteConfig: ZIKPerformRouteConfiguration *, __covariant RemoveConfig: ZIKRemoveRouteConfiguration *> ()
+@interface ZIKServiceRouter<__covariant Destination: id, __covariant RouteConfig: ZIKPerformRouteConfiguration *> ()
 
 #pragma mark Required Override
 
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Optional Override
 
 ///Invoked after auto registration is finished when ZIKROUTER_CHECK is enabled. You can override and validate whether those routable swift protocols used in your module as external dependencies have registered with routers, because we can't enumerate swift protocols at runtime.
-+ (void)_autoRegistrationDidFinished;
++ (void)_registrationDidFinished;
 
 ///Prepare the destination after -prepareDestiantion is invoked.
 - (void)prepareDestination:(Destination)destination configuration:(RouteConfig)configuration;
