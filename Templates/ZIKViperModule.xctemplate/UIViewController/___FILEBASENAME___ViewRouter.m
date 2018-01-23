@@ -40,8 +40,8 @@
 + (void)registerRoutableDestination {
     [self registerExclusiveView:[___VARIABLE_productName___ViewController class]];
     //[self registerView:[___VARIABLE_productName___ViewController class]];
-    //[self registerViewProtocol:@procotol(___VARIABLE_productName___ViewInput)];
-    //[self registerModuleProtocol:@procotol(___VARIABLE_productName___ConfigInput)];
+    //[self registerViewProtocol:ZIKRoutableProtocol(___VARIABLE_productName___ViewInput)];
+    //[self registerModuleProtocol:ZIKRoutableProtocol(___VARIABLE_productName___ConfigInput)];
 }
 
 - (nullable ___VARIABLE_productName___ViewController *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
