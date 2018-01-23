@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81444D02017196500FBCF2F /* ZIKRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FFBF1C1F3CD1BA00F87AF6 /* ZIKRouter.framework */; };
 		F8FFBE6B1F3CC27200F87AF6 /* ZIKViper.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE691F3CC27200F87AF6 /* ZIKViper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8FFBE901F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FFBE861F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.m */; };
 		F8FFBE911F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FFBE871F3CC39800F87AF6 /* ZIKViewRouter+ZIKViper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81444D02017196500FBCF2F /* ZIKRouter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,7 @@
 @implementation ZIKEditorAdapter
 
 + (void)registerRoutableDestination {
-    [ZIKEditorViewRouter registerModuleProtocol:@protocol(NoteListRequiredNoteEditorProtocol)];
+    [ZIKEditorViewRouter registerModuleProtocol:ZIKRoutableProtocol(NoteListRequiredNoteEditorProtocol)];
 }
 
 @end

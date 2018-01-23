@@ -50,9 +50,9 @@
         NSAssert(source != nil, @"source is nil, UIView is not in any UIViewController, can't route from this UIView.");
         
         //UIView 's handleViewDidAppear: from -didMoveToWindow is not accurate, the view may not be displayed yet, still in will appear, so present another view controller may failed.
-        [ZIKViewRouter.toView(ZIKLoginViewProtocol_routable)
-         performWithConfiguring:^(ZIKViewRouteConfiguration * _Nonnull config) {
-             config.source = source;
+        [ZIKViewRouterToView(ZIKLoginViewProtocol)
+         performFromSource:source
+         configuring:^(ZIKViewRouteConfiguration * _Nonnull config) {
              config.routeType = ZIKViewRouteTypePresentModally;
              config.prepareDestination = ^(id<ZIKLoginViewProtocol> _Nonnull destination) {
                  destination.delegate = weakSelf;

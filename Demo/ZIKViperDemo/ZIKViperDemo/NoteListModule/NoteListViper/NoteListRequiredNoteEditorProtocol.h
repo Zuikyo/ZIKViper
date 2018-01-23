@@ -12,8 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define NoteListRequiredNoteEditorProtocol_configRoutable @protocol(NoteListRequiredNoteEditorProtocol)
-
 @class ZIKNoteModel;
 ///Reqiured interface of editor module for notelist module
 @protocol NoteListRequiredNoteEditorProtocol <ZIKViewModuleRoutable>

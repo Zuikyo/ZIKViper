@@ -28,7 +28,7 @@
 
 + (void)registerRoutableDestination {
     [self registerExclusiveView:[ZIKNoteListViewController class]];
-    [self registerViewProtocol:@protocol(ZIKNoteListViewProtocol)];
+    [self registerViewProtocol:ZIKRoutableProtocol(ZIKNoteListViewProtocol)];
 }
 
 - (UIViewController *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
