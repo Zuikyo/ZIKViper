@@ -35,7 +35,7 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
  Abstract superclass of service router for discovering service and injecting dependencies with registered protocol. Subclass it and override those methods in `ZIKRouterInternal` and `ZIKServiceRouterInternal` to make router of your service.
  
  @code
- __block id<LoginServiceInput> loginService;
+ id<LoginServiceInput> loginService;
  loginService = [ZIKServiceRouterToService(LoginServiceInput)
                     makeDestinationWithPreparation:^(id<LoginServiceInput> destination) {
                       //Prepare service
@@ -64,7 +64,9 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
 + (void)registerService:(Class)serviceClass;
 
 /**
- If the service will hold and use it's router, and the router has it's custom functions for this service, that means the service is coupled with the router. In this situation, you can use this function to combine serviceClass with a specific routerClass, then no other routerClass can be used for this serviceClass. If another routerClass try to register with the serviceClass, there will be an assert failure.
+ combine serviceClass with a specific routerClass, then no other routerClass can be used for this serviceClass.
+ @discussion
+ If the service will hold and use it's router, and the router has it's custom functions for this service, that means the service is coupled with the router. You can use this method to register viewClass and routerClass. If another routerClass try to register with the serviceClass, there will be an assert failure.
  
  @param serviceClass The service class requiring a specific router class.
  */
@@ -75,16 +77,16 @@ typedef void(^ZIKServiceRouteGlobalErrorHandler)(__kindof ZIKServiceRouter * _Nu
  
  @param serviceProtocol The protocol conformed by service to identify the routerClass. Should inherit from ZIKServiceRoutable when ZIKROUTER_CHECK is enabled. Use macro `ZIKRoutableProtocol` to check whether the protocol is routable.
  */
-+ (void)registerServiceProtocol:(Protocol<ZIKServiceRoutable> *)serviceProtocol  NS_SWIFT_UNAVAILABLE("Use `register<Protocol>(_ routableService: RoutableService<Protocol>)` instead");
++ (void)registerServiceProtocol:(Protocol<ZIKServiceRoutable> *)serviceProtocol  NS_SWIFT_UNAVAILABLE("Use `register<Protocol>(_ routableService: RoutableService<Protocol>)` in ZRouter instead");
 
 /**
- Register a module config protocol the router's default configuration conforms, then use ZIKServiceRouter.toModule() to get the router class. You can register your protocol and let the configuration conforms to the protocol in category in your interface adapter.
+ Register a module config protocol the router's default configuration conforms, then use ZIKServiceRouterToModule() to get the router class. You can register your protocol and let the configuration conforms to the protocol in category in your interface adapter.
  
  When the service module contains not only a single service class, but also other internal services, and you can't prepare the module with a simple service protocol, then you need a moudle config protocol.
  
  @param configProtocol The protocol conformed by default configuration of the routerClass. Should inherit from ZIKServiceModuleRoutable when ZIKROUTER_CHECK is enabled. Use macro `ZIKRoutableProtocol` to check whether the protocol is routable.
  */
-+ (void)registerModuleProtocol:(Protocol<ZIKServiceModuleRoutable> *)configProtocol  NS_SWIFT_UNAVAILABLE("Use `register<Protocol>(_ routableServiceModule: RoutableServiceModule<Protocol>)` instead");
++ (void)registerModuleProtocol:(Protocol<ZIKServiceModuleRoutable> *)configProtocol  NS_SWIFT_UNAVAILABLE("Use `register<Protocol>(_ routableServiceModule: RoutableServiceModule<Protocol>)`  in ZRouter instead");
 
 @end
 
@@ -111,6 +113,12 @@ NS_SWIFT_UNAVAILABLE("ZIKModuleServiceRouterType is a fake class")
 @interface ZIKModuleServiceRouterType<__covariant Destination: id, __covariant ModuleConfig: id<ZIKServiceModuleRoutable>, __covariant RouteConfig: ZIKPerformRouteConfiguration *> : ZIKServiceRouterType<Destination, RouteConfig>
 
 @end
+
+///Get service router in a type safe way. There will be complie error if the service protocol is not ZIKServiceRoutable.
+#define ZIKRouterToService(ServiceProtocol) (ZIKDestinationServiceRouterType<id<ServiceProtocol>,ZIKPerformRouteConfiguration *> *)[ZIKServiceRouter<id<ServiceProtocol>,ZIKPerformRouteConfiguration *> toService](@protocol(ServiceProtocol))
+
+///Get service router in a type safe way. There will be complie error if the module protocol is not ZIKServiceModuleRoutable.
+#define ZIKRouterToServiceModule(ModuleProtocol) (ZIKModuleServiceRouterType<id,id<ModuleProtocol>,ZIKPerformRouteConfiguration<ModuleProtocol> *> *)[ZIKServiceRouter<id,ZIKPerformRouteConfiguration<ModuleProtocol> *> toModule](@protocol(ModuleProtocol))
 
 ///Get service router in a type safe way. There will be complie error if the service protocol is not ZIKServiceRoutable.
 #define ZIKServiceRouterToService(ServiceProtocol) (ZIKDestinationServiceRouterType<id<ServiceProtocol>,ZIKPerformRouteConfiguration *> *)[ZIKServiceRouter<id<ServiceProtocol>,ZIKPerformRouteConfiguration *> toService](@protocol(ServiceProtocol))

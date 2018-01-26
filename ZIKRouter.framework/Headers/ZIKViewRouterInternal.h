@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark Optional Override
 
-///Invoked after auto registration is finished when ZIKROUTER_CHECK is enabled. You can override and validate whether those routable swift protocols used in your module as external dependencies have registered with routers, because we can't enumerate swift protocols at runtime.
-+ (void)_registrationDidFinished;
+///Invoked after all registrations are finished when ZIKROUTER_CHECK is enabled. You can override and validate whether those routable swift protocols used in your module as external dependencies have be registered with routers, because we can't enumerate swift protocols at runtime.
++ (void)_didFinishRegistration;
 
 /**
  Whether the destination requires the performer to prepare it. This method is for destination from storyboard and UIView from -addSubview:.
@@ -84,9 +84,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///Custom route for ZIKViewRouteTypeCustom. The router must override +supportedRouteTypes to add ZIKViewRouteTypeMaskCustom.
 
-///Whether the router can perform custom route now.
+///Whether the router can perform custom route now. Default is NO.
 - (BOOL)canPerformCustomRoute;
-///Whether the router can remove custom route now.
+///Whether the router can remove custom route now. Default is NO.
 - (BOOL)canRemoveCustomRoute;
 
 ///Perform your custom route. You must maintain the router's state with methods in ZIKViewRouterInternal.h.

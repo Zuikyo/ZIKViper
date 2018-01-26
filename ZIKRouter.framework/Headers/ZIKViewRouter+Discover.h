@@ -15,7 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_UNAVAILABLE("ZIKViewRouterType is a fake class")
-///Fake class to use ZIKViewRouter class type with compile time checking. The real object is Class of ZIKViewRouter, so these instance methods are actually class methods in ZIKViewRouter class.. Don't check whether a type is kind of ZIKViewRouterType.
+///Fake class to use ZIKViewRouter class type with compile time checking. The real object is Class of ZIKViewRouter, so these instance methods are actually class methods in ZIKViewRouter class. Don't check whether a type is kind of ZIKViewRouterType.
 @interface ZIKViewRouterType<__covariant Destination: id, __covariant RouteConfig: ZIKViewRouteConfiguration *> : ZIKRouterType<Destination, RouteConfig, ZIKViewRemoveConfiguration *>
 @end
 
@@ -28,6 +28,12 @@ NS_SWIFT_UNAVAILABLE("ZIKModuleViewRouterType is a fake class")
 ///Fake class to use ZIKRouter class type to handle specific view module config with compile time checking. The real object is Class of ZIKRouter, so these instance methods are actually class methods in ZIKRouter class. Don't check whether a type is kind of ZIKRouterType.
 @interface ZIKModuleViewRouterType<__covariant Destination: id<ZIKRoutableView>, __covariant ModuleConfig: id<ZIKViewModuleRoutable>, __covariant RouteConfig: ZIKViewRouteConfiguration *> : ZIKViewRouterType<Destination, RouteConfig>
 @end
+
+///Get view router in a type safe way. There will be complie error if the view protocol is not ZIKViewRoutable.
+#define ZIKRouterToView(ViewProtocol) (ZIKDestinationViewRouterType<id<ViewProtocol>,ZIKViewRouteConfiguration *> *)[ZIKViewRouter<id<ViewProtocol>,ZIKViewRouteConfiguration *> toView](@protocol(ViewProtocol))
+
+///Get view router in a type safe way. There will be complie error if the module protocol is not ZIKViewModuleRoutable.
+#define ZIKRouterToViewModule(ModuleProtocol) (ZIKModuleViewRouterType<id<ZIKRoutableView>,id<ModuleProtocol>,ZIKViewRouteConfiguration<ModuleProtocol> *> *)[ZIKViewRouter<id<ZIKRoutableView>,ZIKViewRouteConfiguration<ModuleProtocol> *> toModule](@protocol(ModuleProtocol))
 
 ///Get view router in a type safe way. There will be complie error if the view protocol is not ZIKViewRoutable.
 #define ZIKViewRouterToView(ViewProtocol) (ZIKDestinationViewRouterType<id<ViewProtocol>,ZIKViewRouteConfiguration *> *)[ZIKViewRouter<id<ViewProtocol>,ZIKViewRouteConfiguration *> toView](@protocol(ViewProtocol))
@@ -246,6 +252,8 @@ NS_SWIFT_UNAVAILABLE("ZIKModuleViewRouterType is a fake class")
 
 /**
  Perform route from source view to destination view, and prepare destination in a type safe way inferred by generic parameters.
+ @discussion
+ `prepareDest` and `prepareModule`'s type changes with the router's generic parameters.
  
  @param source Source UIViewController or UIView. See ZIKViewRouteConfiguration's source.
  @param configBuilder Type safe builder to build configuration, `prepareDest` is for setting `prepareDestination` block for configuration (it's an escapting block so use weakSelf in it), `prepareModule` is for setting custom route config.
@@ -259,6 +267,8 @@ NS_SWIFT_UNAVAILABLE("ZIKModuleViewRouterType is a fake class")
 
 /**
  Perform route from source view to destination view, and prepare destination in a type safe way inferred by generic parameters.
+ @discussion
+ `prepareDest` and `prepareModule`'s type changes with the router's generic parameters.
  
  @param source Source UIViewController or UIView. See ZIKViewRouteConfiguration's source.
  @param configBuilder Type safe builder to build configuration, `prepareDest` is for setting `prepareDestination` block for configuration (it's an escapting block so use weakSelf in it), `prepareModule` is for setting custom route config.
@@ -342,6 +352,8 @@ NS_SWIFT_UNAVAILABLE("ZIKModuleViewRouterType is a fake class")
 
 /**
  Perform route from source view to destination view, and prepare destination in a type safe way inferred by generic parameters.
+ @discussion
+ `prepareDest` and `prepareModule`'s type changes with the router's generic parameters.
  
  @param source Source UIViewController or UIView. See ZIKViewRouteConfiguration's source.
  @param configBuilder Type safe builder to build configuration, `prepareDest` is for setting `prepareDestination` block for configuration (it's an escapting block so use weakSelf in it), `prepareModule` is for setting custom route config.
@@ -355,6 +367,8 @@ NS_SWIFT_UNAVAILABLE("ZIKModuleViewRouterType is a fake class")
 
 /**
  Perform route from source view to destination view, and prepare destination in a type safe way inferred by generic parameters.
+ @discussion
+ `prepareDest` and `prepareModule`'s type changes with the router's generic parameters.
  
  @param source Source UIViewController or UIView. See ZIKViewRouteConfiguration's source.
  @param configBuilder Type safe builder to build configuration, `prepareDest` is for setting `prepareDestination` block for configuration (it's an escapting block so use weakSelf in it), `prepareModule` is for setting custom route config.
