@@ -27,7 +27,7 @@
 
 + (void)registerRoutableDestination {
     [self registerExclusiveView:[ZIKTextView class]];
-    [self registerViewProtocol:ZIKRoutableProtocol(ZIKTextWidgetViewProtocol)];
+    [self registerViewProtocol:ZIKRoutable(ZIKTextWidgetViewProtocol)];
 }
 
 - (UIView *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
@@ -83,7 +83,7 @@
 }
 
 + (ZIKViewRouteTypeMask)supportedRouteTypes {
-    return ZIKViewRouteTypeMaskUIViewDefault;
+    return ZIKViewRouteTypeMaskViewDefault;
 }
 
 /*

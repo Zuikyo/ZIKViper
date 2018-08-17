@@ -26,7 +26,7 @@
 
 + (void)registerRoutableDestination {
     [self registerExclusiveView:[ZIKLoginViewController class]];
-    [self registerViewProtocol:ZIKRoutableProtocol(ZIKLoginViewProtocol)];
+    [self registerViewProtocol:ZIKRoutable(ZIKLoginViewProtocol)];
 }
 
 - (id)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {

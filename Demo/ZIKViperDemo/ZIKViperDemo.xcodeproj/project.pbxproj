@@ -32,15 +32,43 @@
 		F85121971F1B9C4F00491E7F /* ZIKEditorViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F85121911F1B9C4F00491E7F /* ZIKEditorViewPresenter.m */; };
 		F85121981F1B9C4F00491E7F /* ZIKEditorViewRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F85121941F1B9C4F00491E7F /* ZIKEditorViewRouter.m */; };
 		F85121C11F1BCE7900491E7F /* ZIKEditorInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F85121BD1F1BCE7900491E7F /* ZIKEditorInteractor.m */; };
+		F8B0CB6A2126B68E003F3DE4 /* ZIKRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B0CB652126B682003F3DE4 /* ZIKRouter.framework */; };
+		F8B0CB6B2126B68E003F3DE4 /* ZIKRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8B0CB652126B682003F3DE4 /* ZIKRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8DF8D671F25F9A000685AC2 /* ZIKEditorAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DF8D661F25F9A000685AC2 /* ZIKEditorAdapter.m */; };
 		F8EF73811FB6EFEC0040008C /* ZIKViper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EF737E1FB6EF7A0040008C /* ZIKViper.framework */; };
 		F8EF73821FB6EFEC0040008C /* ZIKViper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8EF737E1FB6EF7A0040008C /* ZIKViper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F8EF73911FB6F0DC0040008C /* ZIKRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EF738F1FB6F0C40040008C /* ZIKRouter.framework */; };
-		F8EF73921FB6F0DC0040008C /* ZIKRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8EF738F1FB6F0C40040008C /* ZIKRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FD8EC61F3AD6D200D7EECB /* ZIKLoginServiceRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FD8EC51F3AD6D200D7EECB /* ZIKLoginServiceRouter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F8B0CB642126B682003F3DE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8B0CB5D2126B681003F3DE4 /* ZIKRouter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F85F4CFF1F223EB0003106C3;
+			remoteInfo = ZIKRouter;
+		};
+		F8B0CB662126B682003F3DE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8B0CB5D2126B681003F3DE4 /* ZIKRouter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F85F4D271F2240D2003106C3;
+			remoteInfo = libZIKRouter;
+		};
+		F8B0CB682126B682003F3DE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8B0CB5D2126B681003F3DE4 /* ZIKRouter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F81A33A6208726B5001D176A;
+			remoteInfo = ZIKRouterTests;
+		};
+		F8B0CB6C2126B68E003F3DE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8B0CB5D2126B681003F3DE4 /* ZIKRouter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F85F4CFE1F223EB0003106C3;
+			remoteInfo = ZIKRouter;
+		};
 		F8EF737D1FB6EF7A0040008C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8EF73791FB6EF7A0040008C /* ZIKViper.xcodeproj */;
@@ -64,7 +92,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F8EF73921FB6F0DC0040008C /* ZIKRouter.framework in Embed Frameworks */,
+				F8B0CB6B2126B68E003F3DE4 /* ZIKRouter.framework in Embed Frameworks */,
 				F8EF73821FB6EFEC0040008C /* ZIKViper.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -145,10 +173,10 @@
 		F85121C01F1BCE7900491E7F /* ZIKEditorInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKEditorInteractorInput.h; sourceTree = "<group>"; };
 		F85121C21F1BDEBE00491E7F /* ZIKEditorConfigProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ZIKEditorConfigProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F8A455A41F4182AE00CA7E10 /* NoteListRequiredNoteEditorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListRequiredNoteEditorProtocol.h; sourceTree = "<group>"; };
+		F8B0CB5D2126B681003F3DE4 /* ZIKRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZIKRouter.xcodeproj; path = ../../ZIKRouter/ZIKRouter.xcodeproj; sourceTree = "<group>"; };
 		F8DF8D651F25F9A000685AC2 /* ZIKEditorAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKEditorAdapter.h; sourceTree = "<group>"; };
 		F8DF8D661F25F9A000685AC2 /* ZIKEditorAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIKEditorAdapter.m; sourceTree = "<group>"; };
 		F8EF73791FB6EF7A0040008C /* ZIKViper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZIKViper.xcodeproj; path = ../../ZIKViper.xcodeproj; sourceTree = "<group>"; };
-		F8EF738F1FB6F0C40040008C /* ZIKRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZIKRouter.framework; sourceTree = "<group>"; };
 		F8FD8EC41F3AD6D200D7EECB /* ZIKLoginServiceRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKLoginServiceRouter.h; sourceTree = "<group>"; };
 		F8FD8EC51F3AD6D200D7EECB /* ZIKLoginServiceRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIKLoginServiceRouter.m; sourceTree = "<group>"; };
 		F8FD8EC71F3AE0A000D7EECB /* ZIKLoginServiceInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIKLoginServiceInput.h; sourceTree = "<group>"; };
@@ -159,7 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8EF73911FB6F0DC0040008C /* ZIKRouter.framework in Frameworks */,
+				F8B0CB6A2126B68E003F3DE4 /* ZIKRouter.framework in Frameworks */,
 				F8EF73811FB6EFEC0040008C /* ZIKViper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,7 +222,7 @@
 		F85120C61F1A0DF500491E7F = {
 			isa = PBXGroup;
 			children = (
-				F8EF738F1FB6F0C40040008C /* ZIKRouter.framework */,
+				F8B0CB5D2126B681003F3DE4 /* ZIKRouter.xcodeproj */,
 				F8EF73791FB6EF7A0040008C /* ZIKViper.xcodeproj */,
 				F85120D11F1A0DF500491E7F /* ZIKViperDemo */,
 				F85120D01F1A0DF500491E7F /* Products */,
@@ -348,6 +376,16 @@
 				F8A455A41F4182AE00CA7E10 /* NoteListRequiredNoteEditorProtocol.h */,
 			);
 			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		F8B0CB5E2126B681003F3DE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8B0CB652126B682003F3DE4 /* ZIKRouter.framework */,
+				F8B0CB672126B682003F3DE4 /* libZIKRouter.a */,
+				F8B0CB692126B682003F3DE4 /* ZIKRouterTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F8DF8D601F25F95000685AC2 /* Adapters */ = {
@@ -556,6 +594,7 @@
 			);
 			dependencies = (
 				F8EF73841FB6EFEC0040008C /* PBXTargetDependency */,
+				F8B0CB6D2126B68E003F3DE4 /* PBXTargetDependency */,
 			);
 			name = ZIKViperDemo;
 			productName = ZIKViperDemo;
@@ -590,6 +629,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = F8B0CB5E2126B681003F3DE4 /* Products */;
+					ProjectRef = F8B0CB5D2126B681003F3DE4 /* ZIKRouter.xcodeproj */;
+				},
+				{
 					ProductGroup = F8EF737A1FB6EF7A0040008C /* Products */;
 					ProjectRef = F8EF73791FB6EF7A0040008C /* ZIKViper.xcodeproj */;
 				},
@@ -602,6 +645,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		F8B0CB652126B682003F3DE4 /* ZIKRouter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZIKRouter.framework;
+			remoteRef = F8B0CB642126B682003F3DE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8B0CB672126B682003F3DE4 /* libZIKRouter.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libZIKRouter.a;
+			remoteRef = F8B0CB662126B682003F3DE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8B0CB692126B682003F3DE4 /* ZIKRouterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ZIKRouterTests.xctest;
+			remoteRef = F8B0CB682126B682003F3DE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F8EF737E1FB6EF7A0040008C /* ZIKViper.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -659,6 +723,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F8B0CB6D2126B68E003F3DE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZIKRouter;
+			targetProxy = F8B0CB6C2126B68E003F3DE4 /* PBXContainerItemProxy */;
+		};
 		F8EF73841FB6EFEC0040008C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ZIKViper;

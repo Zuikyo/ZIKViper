@@ -18,7 +18,7 @@
 
 + (void)registerRoutableDestination {
     [self registerService:[ZIKLoginService class]];
-    [self registerServiceProtocol:ZIKRoutableProtocol(ZIKLoginServiceInput)];
+    [self registerServiceProtocol:ZIKRoutable(ZIKLoginServiceInput)];
 }
 
 - (id)destinationWithConfiguration:(ZIKPerformRouteConfiguration *)configuration {
