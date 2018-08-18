@@ -21,7 +21,7 @@
 @implementation ZIKTextView
 
 - (UIViewController *)routeSource {
-    UIViewController *source = [self zix_firstAvailableUIViewController];
+    UIViewController *source = [self zix_firstAvailableViewController];
     if (source == nil) {
 //        source = [UIApplication sharedApplication].delegate.window.rootViewController;
         NSAssert(NO, @"This UIView is not in any UIViewController. Should use app rootViewController ?");

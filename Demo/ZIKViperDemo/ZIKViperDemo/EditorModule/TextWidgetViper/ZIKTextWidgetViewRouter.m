@@ -45,8 +45,6 @@
 }
 
 - (void)prepareDestination:(id)destination configuration:(__kindof ZIKViewRouteConfiguration *)configuration {
-    NSParameterAssert([destination isKindOfClass:[ZIKTextView class]]);
-    NSParameterAssert([destination conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
     if (![self isViperAssembled]) {
         [self assembleViper];
     } else {
@@ -62,9 +60,6 @@
     NSAssert([self isViperAssembled] == NO, @"Already assembled");
     ZIKTextWidgetViewPresenter *presenter = [[ZIKTextWidgetViewPresenter alloc] init];
     ZIKTextWidgetInteractor *interactor = [[ZIKTextWidgetInteractor alloc] init];
-    NSParameterAssert([view conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
-    NSParameterAssert([presenter conformsToProtocol:@protocol(ZIKViperPresenterPrivate)]);
-    NSParameterAssert([interactor conformsToProtocol:@protocol(ZIKViperInteractorPrivate)]);
     [self assembleViperForView:view
                      presenter:(id<ZIKViperPresenterPrivate>)presenter
                     interactor:(id<ZIKViperInteractorPrivate>)interactor];

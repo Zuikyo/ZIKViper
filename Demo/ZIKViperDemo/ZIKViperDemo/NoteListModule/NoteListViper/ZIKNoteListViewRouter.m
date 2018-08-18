@@ -38,7 +38,7 @@
     return destination;
 }
 
-+ (BOOL)destinationPrepared:(id)destination {
+- (BOOL)destinationFromExternalPrepared:(id)destination {
     NSParameterAssert([destination isKindOfClass:[ZIKNoteListViewController class]]);
     NSParameterAssert([destination conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
     if (![ZIKViewRouter isViperAssembledForView:destination]) {
@@ -64,9 +64,6 @@
     NSAssert(view, @"Can't assemble viper when view is nil");
     ZIKNoteListViewPresenter *presenter = [[ZIKNoteListViewPresenter alloc] init];
     ZIKNoteListInteractor *interactor = [[ZIKNoteListInteractor alloc] init];
-    NSParameterAssert([view conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
-    NSParameterAssert([presenter conformsToProtocol:@protocol(ZIKViperPresenterPrivate)]);
-    NSParameterAssert([interactor conformsToProtocol:@protocol(ZIKViperInteractor)]);
     [self assembleViperForView:view
                      presenter:(id<ZIKViperPresenterPrivate>)presenter
                     interactor:interactor];

@@ -72,7 +72,7 @@
     return destination;
 }
 
-+ (BOOL)destinationPrepared:(id)destination {
+- (BOOL)destinationFromExternalPrepared:(id)destination {
     if ([destination delegate] == nil) {
         return NO;
     }
@@ -80,9 +80,6 @@
 }
 
 - (void)prepareDestination:(ZIKEditorViewController *)destination configuration:(ZIKEditorViewConfiguration *)configuration {
-    NSParameterAssert([destination isKindOfClass:[ZIKEditorViewController class]]);
-    NSParameterAssert([destination conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
-    
     id<ZIKEditorViewProtocol> editor = destination;
     editor.delegate = configuration.delegate;
     editor.editMode = configuration.editMode;
@@ -104,9 +101,6 @@
     NSAssert(view, @"Can't assemble viper when view is nil");
     ZIKEditorViewPresenter *presenter = [[ZIKEditorViewPresenter alloc] init];
     ZIKEditorInteractor *interactor = [[ZIKEditorInteractor alloc] initWithEditingNote:config.noteToModify];
-    NSParameterAssert([view conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
-    NSParameterAssert([presenter conformsToProtocol:@protocol(ZIKViperPresenterPrivate)]);
-    NSParameterAssert([interactor conformsToProtocol:@protocol(ZIKViperInteractorPrivate)]);
     [self assembleViperForView:view
                      presenter:(id<ZIKViperPresenterPrivate>)presenter
                     interactor:(id<ZIKViperInteractorPrivate>)interactor];

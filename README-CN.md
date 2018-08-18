@@ -11,6 +11,14 @@
 
 ---
 
+## Get Started
+
+这个仓库使用了 submodule [ZIKRouter](https://github.com/Zuikyo/ZIKRouter)。你需要同时 clone submodule：
+
+```
+git clone --recursive https://github.com/Zuikyo/ZIKViper.git
+```
+
 ## 目录
 
 * [VIPER简介](#VIPER-intro)

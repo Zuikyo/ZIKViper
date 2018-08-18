@@ -40,8 +40,8 @@
 + (void)registerRoutableDestination {
     [self registerExclusiveView:[___VARIABLE_productName___ViewController class]];
     //[self registerView:[___VARIABLE_productName___ViewController class]];
-    //[self registerViewProtocol:ZIKRoutableProtocol(___VARIABLE_productName___ViewInput)];
-    //[self registerModuleProtocol:ZIKRoutableProtocol(___VARIABLE_productName___ConfigInput)];
+    //[self registerViewProtocol:ZIKRoutable(___VARIABLE_productName___ViewInput)];
+    //[self registerModuleProtocol:ZIKRoutable(___VARIABLE_productName___ConfigInput)];
 }
 
 - (nullable ___VARIABLE_productName___ViewController *)destinationWithConfiguration:(ZIKViewRouteConfiguration *)configuration {
@@ -70,9 +70,6 @@
     NSAssert([self isViperAssembled] == NO, @"Already assembled");
     ___VARIABLE_productName___ViewPresenter *presenter = [[___VARIABLE_productName___ViewPresenter alloc] init];
     ___VARIABLE_productName___Interactor *interactor = [[___VARIABLE_productName___Interactor alloc] init];
-    NSParameterAssert([view conformsToProtocol:@protocol(ZIKViperViewPrivate)]);
-    NSParameterAssert([presenter conformsToProtocol:@protocol(ZIKViperPresenterPrivate)]);
-    NSParameterAssert([interactor conformsToProtocol:@protocol(ZIKViperInteractorPrivate)]);
     [self assembleViperForView:view
                      presenter:(id<ZIKViperPresenterPrivate>)presenter
                     interactor:(id<ZIKViperInteractorPrivate>)interactor];

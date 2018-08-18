@@ -23,6 +23,14 @@ You can get answers about these discussions here:
 
 ## [中文文档](https://github.com/Zuikyo/ZIKViper/blob/master/README-CN.md)
 
+## Get Started
+
+This repository uses submodule [ZIKRouter](https://github.com/Zuikyo/ZIKRouter), so you need to clone the submodule:
+
+```
+git clone --recursive https://github.com/Zuikyo/ZIKViper.git
+```
+
 ## Catalog
 
 * [What's VIPER](#VIPER-intro)

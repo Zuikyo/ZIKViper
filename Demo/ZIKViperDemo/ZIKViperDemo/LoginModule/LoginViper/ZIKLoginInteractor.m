@@ -26,7 +26,7 @@
             config.prepareDestination = ^(id  _Nonnull destination) {
                 
             };
-            config.routeCompletion = ^(id  _Nonnull destination) {
+             config.successHandler = ^(id  _Nonnull destination) {
                 loginService = destination;
             };
         }];
